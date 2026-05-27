@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{content.nav.logo_text}} — {{company.tagline}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-primary:   {{brand.color_primary}};
+    --color-secondary: {{brand.color_secondary}};
+    --color-accent:    {{brand.color_accent}};
+    --color-text:      {{brand.color_text}};
+    --color-bg:        {{brand.color_bg}};
+    --color-dark:      {{brand.color_dark}};
+    --font-heading:    {{brand.font_heading}};
+    --font-body:       {{brand.font_body}};
+    --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: #fff;
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== NAV ===== */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 32px 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 300ms var(--ease), padding 300ms var(--ease), border-color 300ms var(--ease);
+    border-bottom: 1px solid transparent;
+  }
+  .nav.scrolled {
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom-color: rgba(0,0,0,0.07);
+    padding: 20px 56px;
+  }
+  .nav-logo {
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--color-text);
+    text-decoration: none;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .nav-links { display: flex; align-items: center; gap: 36px; }
+  .nav-link {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-text);
+    text-decoration: none;
+    opacity: 0.4;
+    transition: opacity 300ms var(--ease);
+  }
+  .nav-link:hover { opacity: 1; }
+  .nav-cta {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    text-decoration: none;
+    padding: 9px 24px;
+    border: 1px solid var(--color-primary);
+    transition: background 300ms var(--ease), color 300ms var(--ease);
+  }
+  .nav-cta:hover { background: var(--color-primary); color: #fff; }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    padding: 0 56px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 80px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  .hero-text { padding-top: 100px; padding-bottom: 80px; }
+  .hero-label {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .hero-label::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--color-accent);
+    opacity: 0.6;
+  }
+  .hero-headline {
+    font-family: var(--font-heading);
+    font-size: clamp(42px, 6vw, 88px);
+    font-weight: 200;
+    line-height: 1.12;
+    color: var(--color-text);
+    letter-spacing: -0.01em;
+    margin-bottom: 36px;
+    white-space: pre-line;
+  }
+  .hero-sub {
+    font-size: 16px;
+    color: rgba(0,0,0,0.45);
+    line-height: 1.85;
+    max-width: 420px;
+    margin-bottom: 56px;
+  }
+  .hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    background: var(--color-primary);
+    color: #fff;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    transition: background 300ms var(--ease), transform 200ms var(--ease);
+  }
+  .btn-primary:hover { background: var(--color-dark); transform: translateY(-1px); }
+  .btn-text {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text);
+    text-decoration: none;
+    opacity: 0.45;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: opacity 300ms var(--ease);
+  }
+  .btn-text::after { content: '→'; transition: transform 300ms var(--ease); }
+  .btn-text:hover { opacity: 1; }
+  .btn-text:hover::after { transform: translateX(4px); }
+  .hero-visual {
+    height: 100vh;
+    background: var(--color-bg);
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+    position: relative;
+  }
+  .hero-thumb {
+    background: color-mix(in srgb, var(--color-primary) 10%, white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    opacity: 0.35;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .hero-thumb:first-child {
+    grid-row: 1 / 2;
+    grid-column: 1 / 3;
+    background: color-mix(in srgb, var(--color-primary) 14%, white);
+    opacity: 0.5;
+  }
+
+  /* ===== SECTION BASE ===== */
+  .section { padding: 120px 56px; }
+  .section-inner { max-width: 1040px; margin: 0 auto; }
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--color-accent);
+    opacity: 0.6;
+  }
+  .section-title {
+    font-family: var(--font-heading);
+    font-size: clamp(28px, 3.5vw, 52px);
+    font-weight: 200;
+    color: var(--color-text);
+    line-height: 1.22;
+    letter-spacing: -0.01em;
+    white-space: pre-line;
+  }
+
+  /* ===== ABOUT ===== */
+  .about { background: #fff; border-bottom: 1px solid rgba(0,0,0,0.06); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: start;
+    margin-top: 64px;
+  }
+  .about-body {
+    font-size: 16px;
+    color: rgba(0,0,0,0.55);
+    line-height: 1.95;
+    white-space: pre-line;
+  }
+  .about-stats { display: flex; flex-direction: column; gap: 0; }
+  .stat-item {
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+  }
+  .stat-item:first-child { border-top: 1px solid rgba(0,0,0,0.07); }
+  .stat-value {
+    font-family: var(--font-heading);
+    font-size: 36px;
+    font-weight: 200;
+    color: var(--color-primary);
+    letter-spacing: -0.02em;
+    flex-shrink: 0;
+  }
+  .stat-label { font-size: 13px; color: rgba(0,0,0,0.42); line-height: 1.5; }
+
+  /* ===== WORKS (services as portfolio areas) ===== */
+  .works { background: var(--color-bg); }
+  .works-header { margin-bottom: 72px; }
+  .works-header .section-title { margin-top: 12px; }
+  .works-desc { font-size: 15px; color: rgba(0,0,0,0.4); margin-top: 20px; max-width: 480px; }
+  .works-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    counter-reset: work-counter;
+  }
+  .work-card {
+    background: #fff;
+    padding: 48px 40px;
+    counter-increment: work-counter;
+    transition: transform 300ms var(--ease), box-shadow 300ms var(--ease);
+    position: relative;
+  }
+  .work-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.07); }
+  .work-card::before {
+    content: counter(work-counter, decimal-leading-zero);
+    font-family: var(--font-heading);
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--color-accent);
+    letter-spacing: 0.12em;
+    opacity: 0.6;
+    display: block;
+    margin-bottom: 20px;
+  }
+  .work-icon {
+    font-size: 28px;
+    display: block;
+    margin-bottom: 20px;
+    color: var(--color-primary);
+  }
+  .work-title {
+    font-family: var(--font-heading);
+    font-size: 17px;
+    font-weight: 300;
+    color: var(--color-text);
+    letter-spacing: 0.03em;
+    margin-bottom: 14px;
+    line-height: 1.4;
+  }
+  .work-desc { font-size: 13px; color: rgba(0,0,0,0.5); line-height: 1.85; }
+
+  /* ===== CONTACT ===== */
+  .contact { background: var(--color-dark); color: #fff; }
+  .contact-inner {
+    max-width: 1040px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .contact .section-label { color: rgba(255,255,255,0.35); }
+  .contact-headline {
+    font-family: var(--font-heading);
+    font-size: clamp(28px, 4vw, 56px);
+    font-weight: 200;
+    color: #fff;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    white-space: pre-line;
+    margin-top: 16px;
+  }
+  .contact-right { padding-top: 0; }
+  .contact-desc {
+    font-size: 15px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.85;
+    margin-bottom: 40px;
+  }
+  .btn-light {
+    display: inline-flex;
+    align-items: center;
+    background: transparent;
+    color: #fff;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    border: 1px solid rgba(255,255,255,0.35);
+    transition: background 300ms var(--ease), border-color 300ms var(--ease);
+  }
+  .btn-light:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6); }
+  .contact-meta {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .contact-meta-item { font-size: 13px; color: rgba(255,255,255,0.35); }
+  .contact-meta-item a { color: rgba(255,255,255,0.6); text-decoration: none; transition: color 200ms; }
+  .contact-meta-item a:hover { color: #fff; }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    background: #0a0a0a;
+    color: rgba(255,255,255,0.25);
+    padding: 24px 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-link { color: rgba(255,255,255,0.22); text-decoration: none; margin-left: 24px; transition: color 200ms; }
+  .footer-link:hover { color: rgba(255,255,255,0.6); }
+
+  /* ===== POC BADGE ===== */
+  .poc-badge {
+    position: fixed;
+    bottom: 24px; right: 24px;
+    background: rgba(255, 200, 0, 0.95);
+    color: #333;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    z-index: 999;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .nav { padding: 20px 24px; }
+    .nav.scrolled { padding: 14px 24px; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 120px 24px 60px; min-height: auto; }
+    .hero-visual { display: none; }
+    .section { padding: 80px 24px; }
+    .about-grid { grid-template-columns: 1fr; gap: 56px; }
+    .works-grid { grid-template-columns: 1fr; }
+    .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+    .footer { padding: 20px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo">{{content.nav.logo_text}}</a>
+  <div class="nav-links">
+    {{NAV_LINKS_HTML}}
+    <a href="{{content.nav.cta.href}}" class="nav-cta">{{content.nav.cta.text}}</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-text">
+    <div class="hero-label">{{content.hero.label}}</div>
+    <h1 class="hero-headline">{{content.hero.headline}}</h1>
+    <p class="hero-sub">{{content.hero.description}}</p>
+    <div class="hero-actions">
+      <a href="{{content.hero.cta_primary.href}}" class="btn-primary">{{content.hero.cta_primary.text}}</a>
+      <a href="{{content.hero.cta_secondary.href}}" class="btn-text">{{content.hero.cta_secondary.text}}</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-thumb">Works</div>
+    <div class="hero-thumb"></div>
+    <div class="hero-thumb"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+  <div class="section-inner">
+    <div class="section-label">{{content.about.label}}</div>
+    <h2 class="section-title">{{content.about.title}}</h2>
+    <div class="about-grid">
+      <p class="about-body">{{content.about.body}}</p>
+      <div class="about-stats">{{STATS_HTML}}</div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKS -->
+<section class="section works" id="services">
+  <div class="section-inner">
+    <div class="works-header">
+      <div class="section-label">{{content.services.label}}</div>
+      <h2 class="section-title">{{content.services.title}}</h2>
+      <p class="works-desc">{{content.services.description}}</p>
+    </div>
+    <div class="works-grid">{{SERVICES_HTML}}</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+  <div class="contact-inner">
+    <div>
+      <div class="section-label">{{content.contact.label}}</div>
+      <h2 class="contact-headline">{{content.contact.headline}}</h2>
+    </div>
+    <div class="contact-right">
+      <p class="contact-desc">{{content.contact.description}}</p>
+      <a href="{{content.contact.cta_href}}" class="btn-light">{{content.contact.cta_text}}</a>
+      <div class="contact-meta">
+        <div class="contact-meta-item"><a href="mailto:{{content.contact.email}}">{{content.contact.email}}</a></div>
+        <div class="contact-meta-item">{{content.contact.address}}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <span>{{content.footer.copyright}}</span>
+  <div>{{FOOTER_LINKS_HTML}}</div>
+</footer>
+
+<div class="poc-badge">PoC Preview</div>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+</script>
+</body>
+</html>

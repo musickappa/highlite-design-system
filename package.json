@@ -1,0 +1,9 @@
+{
+  "name": "highlite-website-system",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "poc": "node website-system/generate-poc.js",
+    "new": "node website-system/new-client.js"
+  }
+}

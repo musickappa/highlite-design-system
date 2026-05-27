@@ -225,14 +225,38 @@ PoCは **必ず保存する**（クライアントとの合意の証拠）。
 
 ---
 
+## クイックスタート（npm スクリプト）
+
+プロジェクトルートで以下の2コマンドだけで完結します。
+
+```bash
+# 新規クライアントのフォルダを作成
+npm run new <client-slug>
+
+# profile.json を編集したらサイトを生成（何度でも再実行可）
+npm run poc <client-slug>
+```
+
+**典型的な流れ：**
+
+1. `npm run new tanaka-law` — `clients/tanaka-law/` フォルダと `profile.json` が自動作成される
+2. `clients/tanaka-law/profile.json` を編集（会社名・コピー・カラーなど）
+3. `npm run poc tanaka-law` — `clients/tanaka-law/poc/index.html` が生成される
+4. 修正 → ステップ 3 を繰り返す
+
+---
+
 ## よく使うコマンド
 
 ```bash
-# PoC生成
+# PoC生成（npm スクリプト）
+npm run poc <client-slug>
+
+# PoC生成（直接実行）
 node website-system/generate-poc.js <client-slug>
 
-# テンプレートを変えて比較（profile.jsonのtemplateを書き換えてから）
-node website-system/generate-poc.js <client-slug>
+# テンプレートを変えて比較（profile.json の template を書き換えてから再実行）
+npm run poc <client-slug>
 
 # 既存クライアント一覧を確認
 ls clients/

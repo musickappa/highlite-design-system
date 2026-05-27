@@ -1,0 +1,160 @@
+{
+  "_meta": {
+    "schema_version": "1.0",
+    "phase": "poc",
+    "template": "warmth",
+    "created_at": "2026-05-25",
+    "created_by": "Yuto Furukawa",
+    "client_slug": "takana-fish"
+  },
+  "company": {
+    "name": "田中鮮魚店",
+    "name_en": "Tanaka Fish Market",
+    "tagline": "毎日の食卓に、海の「おいしい」をまっすぐお届け。",
+    "industry": "鮮魚小売・卸売、ECショップ運営",
+    "description": "創業50年、地元の港から毎日仕入れる新鮮な海の幸を届ける街の魚屋です。確かな目利きで選んだ一級品をお手頃価格で提供するだけでなく、「あとは焼くだけ・煮るだけ」の状態に調理したパックや自家製の干物も人気を集めています。魚の美味しさを若い世代にも伝えるため、SNSでの情報発信や定期的な「魚の捌き方教室」も開催しています。",
+    "logo_path": ""
+  },
+  "brand": {
+    "color_primary": "#002B66",
+    "color_secondary": "#FAF8F5",
+    "color_accent": "#C8371A",
+    "color_text": "#1A1008",
+    "color_bg": "#F7F4F0",
+    "color_dark": "#001845",
+    "font_heading": "'Noto Serif JP', 'Yu Mincho', '游明朝', Georgia, serif",
+    "font_body": "'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif"
+  },
+  "website_goal": {
+    "primary_purpose": "店舗の認知拡大（周辺地域の若いファミリー層の新規来店）および全国発送対応ECの売上拡大",
+    "target_audience": "「魚屋は敷居が高い」と感じている20〜40代、ギフト・お祝い用に本物の味を探している全国の顧客、仕入れ先を探している飲食店オーナー",
+    "key_message": "田中鮮魚店の魚はどこよりも新鮮で、プロの技術によって「一番美味しい状態」かつ「調理しやすい状態」で手に入る",
+    "success_metrics": [
+      "若年ファミリー層の新規来店数の増加",
+      "ECサイトからのお取り寄せ売上拡大",
+      "「名物ひもの」定期購入の獲得"
+    ]
+  },
+  "content": {
+    "nav": {
+      "logo_text": "田中鮮魚店",
+      "links": [
+        {
+          "label": "こだわり",
+          "href": "#about"
+        },
+        {
+          "label": "サービス",
+          "href": "#services"
+        },
+        {
+          "label": "お取り寄せ",
+          "href": "#contact"
+        },
+        {
+          "label": "アクセス",
+          "href": "#contact"
+        }
+      ],
+      "cta": {
+        "text": "オンラインショップへ",
+        "href": "#contact"
+      }
+    },
+    "hero": {
+      "label": "Tanaka Fish Market — 静岡・焼津",
+      "headline": "今日、一番旨い\n魚がある。",
+      "subheadline": "創業50年、目利きのプロが毎朝市場で選び抜いた「本当の鮮度」をご自宅で。",
+      "description": "魚の美味しさは、鮮度と職人の技で決まります。田中鮮魚店では、毎朝その日に水揚げされた一級品だけを厳選。お刺身から焼き魚用まで、熟練の職人が一番旨い状態に捌いてお届けします。",
+      "cta_primary": {
+        "text": "本日の仕入れ情報をチェック",
+        "href": "#about"
+      },
+      "cta_secondary": {
+        "text": "オンラインショップを見る",
+        "href": "#contact"
+      }
+    },
+    "about": {
+      "label": "About",
+      "title": "港から食卓へ、\n50年つなぐ職人の目利き。",
+      "body": "昭和から続く50年の歴史の中で、私たちは毎朝市場に足を運び、その日一番の魚を選び続けてきました。\n\n「魚離れ」が進む時代にも、魚の美味しさを伝えたいという想いは変わりません。無料の調理サービスや、全国へのお取り寄せ対応で、一人でも多くの方に本物の鮮魚をお届けしています。",
+      "stats": [
+        {
+          "value": "創業50年",
+          "label": "地域に根ざした信頼と実績"
+        },
+        {
+          "value": "30種類以上",
+          "label": "毎日店頭に並ぶ新鮮な魚介"
+        },
+        {
+          "value": "累計10,000件",
+          "label": "名物「極上自家製ひもの」のお取り寄せ数"
+        }
+      ]
+    },
+    "services": {
+      "label": "Our Strengths",
+      "title": "3つの強みが、\n毎日の食卓を変える。",
+      "description": "鮮度・技・配送。どこにも負けない理由があります。",
+      "items": [
+        {
+          "icon": "◉",
+          "title": "創業50年の職人による圧倒的な「目利き」",
+          "description": "長年培った経験と信頼のルートで、その日一番状態の良い魚だけを市場から直接買い付けています。本当においしい旬の味を、どこよりもお安くお届けします。"
+        },
+        {
+          "icon": "◈",
+          "title": "ゴミ出しもラク！要望に合わせた「無料調理サービス」",
+          "description": "「家で魚を捌くのはハードルが高い」という声に応え、内臓処理や三枚おろし、骨抜きまで、ご要望に合わせてその場で丁寧に処理します。生ゴミの心配もありません。"
+        },
+        {
+          "icon": "◇",
+          "title": "市場の鮮度をそのままに「全国スピード配送」",
+          "description": "遠方のファンやギフト用として、最新の真空パック技術と急速冷凍を使い、獲れたての美味しさをそのまま全国のご家庭へ発送いたします。"
+        }
+      ]
+    },
+    "contact": {
+      "label": "Order & Visit",
+      "headline": "静岡・焼津から、\n全国の食卓へ。",
+      "description": "店頭でのご購入はもちろん、贈答用ギフトや飲食店への卸売も承っております。お取り寄せのご注文・ご相談はお気軽にどうぞ。",
+      "cta_text": "お問い合わせ・ご注文はこちら",
+      "cta_href": "mailto:info@tanaka-sengyo-sample.com",
+      "email": "info@tanaka-sengyo-sample.com",
+      "address": "静岡県焼津市"
+    },
+    "footer": {
+      "copyright": "© 田中鮮魚店 Tanaka Fish Market. All rights reserved.",
+      "links": [
+        {
+          "label": "オンラインショップ",
+          "href": "#"
+        },
+        {
+          "label": "Instagram",
+          "href": "#"
+        },
+        {
+          "label": "Privacy Policy",
+          "href": "#"
+        }
+      ]
+    }
+  },
+  "poc_notes": {
+    "sales_context": "地元での知名度は高いものの、常連客の高齢化が進んでいる。若年層へのアプローチや、コロナ禍以降に始めたECサイトの売上を本格的に伸ばすため、現在の古いホームページを全面リニューアルしたいという相談。",
+    "client_pain_points": [
+      "スーパーに押され、個人商店ならではの強み（対面コミュニケーション・無料三枚おろしなど）がWeb上でうまく伝わっていない",
+      "現在のECサイトは購入導線が分かりにくく、せっかくの「名物ひもの」が売れていない",
+      "若年層・ファミリー層への認知が弱い"
+    ],
+    "proposed_solution": "職人のこだわりと活気を伝えるブランドサイトを構築。店主がスマホから「今日のおすすめ魚」を毎朝写真付きで更新できるCMS導入も提案。",
+    "next_steps": [
+      "TOPページのワイヤーフレーム作成",
+      "店内・商品・職人の写真素材をお借りする",
+      "CMS（更新システム）の要件ヒアリング"
+    ]
+  }
+}

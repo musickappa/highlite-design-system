@@ -8,6 +8,9 @@
  *   "corporate" (default) → poc-template.html  — B2B・コンサル・専門サービス
  *   "warmth"              → poc-warmth.html    — カフェ・飲食・ライフスタイル
  *   "launch"              → poc-launch.html    — スタートアップ・SaaS・プロダクト
+ *   "portfolio"           → poc-portfolio.html — クリエイター・設計事務所・写真家
+ *   "medical"             → poc-medical.html   — クリニック・歯科・整体・士業
+ *   "local"               → poc-local.html     — 地域密着・小売・美容室・飲食店
  *
  * Reads  clients/<slug>/profile.json
  * Writes clients/<slug>/poc/index.html
@@ -41,6 +44,9 @@ const TEMPLATES = {
   corporate: 'poc-template.html',
   warmth:    'poc-warmth.html',
   launch:    'poc-launch.html',
+  portfolio: 'poc-portfolio.html',
+  medical:   'poc-medical.html',
+  local:     'poc-local.html',
 };
 const templateName = profile._meta?.template || 'corporate';
 const templateFile = TEMPLATES[templateName] || TEMPLATES.corporate;
@@ -103,6 +109,38 @@ function buildServicesHtml(items, template) {
           <h3 class="service-title">${s.title}</h3>
           <p class="service-desc">${s.description}</p>
         </div>
+      </div>`).join('');
+  }
+
+  if (template === 'portfolio') {
+    // Numbered work cards in 3-column grid
+    return list.map(s => `
+      <div class="work-card">
+        <span class="work-icon">${s.icon || '◆'}</span>
+        <h3 class="work-title">${s.title}</h3>
+        <p class="work-desc">${s.description}</p>
+      </div>`).join('');
+  }
+
+  if (template === 'medical') {
+    // 2-column treatment cards with left accent border
+    return list.map(s => `
+      <div class="treatment-card">
+        <div class="treatment-header">
+          <div class="treatment-icon">${s.icon || '◆'}</div>
+          <h3 class="treatment-title">${s.title}</h3>
+        </div>
+        <p class="treatment-desc">${s.description}</p>
+      </div>`).join('');
+  }
+
+  if (template === 'local') {
+    // Centered cards with large icon
+    return list.map(s => `
+      <div class="service-block">
+        <span class="service-block-icon">${s.icon || '◆'}</span>
+        <h3 class="service-block-title">${s.title}</h3>
+        <p class="service-block-desc">${s.description}</p>
       </div>`).join('');
   }
 
