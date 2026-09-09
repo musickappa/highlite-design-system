@@ -3,25 +3,41 @@ title: 合宿も社内報もやった。それで何が残ったのか
 cat: インナー
 target_cluster: startup
 target_reader:
-  - executive
+- executive
 slug: what-is-inner-branding
 keyword: インナーブランディング とは
 keywords:
-  - インナーブランディング とは
-  - インナーブランディング
+- インナーブランディング とは
+- インナーブランディング
 related:
-  - t: 診断
-    href: index.html#diagnostic
-  - t: 効果はあるのか
-    href: basics/does-it-work.html
-  - t: 何から始めるか
-    href: basics/where-to-start.html
+- t: 診断
+  href: index.html#diagnostic
+- t: 効果はあるのか
+  href: basics/does-it-work.html
+- t: 何から始めるか
+  href: basics/where-to-start.html
 sources:
-  - key: highlite-what-is-inner-branding
-    title: 「インナーブランディング とは」をめぐる編集ノート
-    author: Highlite 編集部
-    year: 2026
-    type: 編
+- key: highlite-what-is-inner-branding
+  title: 「インナーブランディング とは」をめぐる編集ノート
+  author: Highlite 編集部
+  year: 2026
+  type: 編
+status: draft
+version: 1
+review:
+  approved_by: []
+  revision_rounds: 0
+schedule:
+  posted_at: '2026-09-09T14:12:42.755906+09:00'
+  expires_at: '2026-10-07'
+  scheduled_date: '2026-09-17'
+  published_at: null
+  published_url: null
+id: br-2026-09-09
+slack:
+  channel: C0BNHP6HU04
+  ts: '1788930762.961339'
+  permalink: https://highlite-brand.slack.com/archives/C0BNHP6HU04/p1788930762961339
 ---
 
 去年の合宿は盛り上がった。社内報も、担当が変わりながら続いている。それなのに半年たつと、現場の空気は元に戻っている。あれは何だったのか。次に同じ提案が来たとき、やるとも、やらないとも言えない。
