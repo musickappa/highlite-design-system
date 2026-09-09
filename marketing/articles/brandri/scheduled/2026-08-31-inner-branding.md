@@ -21,7 +21,7 @@ sources:
   author: Highlite 編集部
   year: 2026
   type: 編
-status: reviewing
+status: scheduled
 version: 2
 review:
   approved_by: []
