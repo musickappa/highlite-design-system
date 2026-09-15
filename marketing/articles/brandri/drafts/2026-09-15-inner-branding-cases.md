@@ -2,25 +2,42 @@
 title: 事例を読むほど、うちには関係ない気がしてくる
 cat: インナー
 target_reader:
-  - executive
+- executive
 slug: inner-branding-cases
 keyword: インナーブランディング 事例
 keywords:
-  - インナーブランディング 事例
-  - インナーブランディング 成功事例
+- インナーブランディング 事例
+- インナーブランディング 成功事例
 related:
-  - t: 診断
-    href: index.html#diagnostic
-  - t: 効果はあるのか
-    href: basics/does-it-work.html
-  - t: 育てる
-    href: situations/grow.html
+- t: 診断
+  href: index.html#diagnostic
+- t: 効果はあるのか
+  href: basics/does-it-work.html
+- t: 育てる
+  href: situations/grow.html
 sources:
-  - key: highlite-inner-branding-cases
-    title: 「インナーブランディング 事例」をめぐる編集ノート
-    author: Highlite 編集部
-    year: 2026
-    type: 編
+- key: highlite-inner-branding-cases
+  title: 「インナーブランディング 事例」をめぐる編集ノート
+  author: Highlite 編集部
+  year: 2026
+  type: 編
+status: draft
+version: 1
+target_cluster: startup
+review:
+  approved_by: []
+  revision_rounds: 0
+schedule:
+  posted_at: '2026-09-15T15:33:08.559316+09:00'
+  expires_at: '2026-10-13'
+  scheduled_date: '2026-09-24'
+  published_at: null
+  published_url: null
+id: br-2026-09-15
+slack:
+  channel: C0BNHP6HU04
+  ts: '1789453988.762169'
+  permalink: https://highlite-brand.slack.com/archives/C0BNHP6HU04/p1789453988762169
 ---
 
 「他社はどうやってるの」と役員に聞かれて、事例集を三冊取り寄せた。出てくるのは社員数千人の会社ばかりで、専任の部署がある。うちは四十人、担当は総務の兼務だ。読み終えて、机の上に何も残らなかった。
