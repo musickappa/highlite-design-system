@@ -2,7 +2,7 @@
 doc_id: brandri-weekly-flow
 confidentiality: internal
 owner: Yuto Furukawa
-rev: r1 (2026-09-09)
+rev: r2 (2026-09-15) — ①執筆を壁打ち方式に変更。Slack投稿は執筆者本人のOK後に限定
 purpose: Brandri 記事パイプラインの運用フローを、実行するコマンドまで含めて1枚にまとめる（実行者向け）
 audience: 実行者（古川）。レビュー者向けの操作は docs/review-operations.md
 depends_on:
@@ -46,8 +46,9 @@ cd ~/Documents/vscode/highlite-design-system
 
 | 段階 | 曜日 | 誰が | 打つコマンド |
 |---|---|---|---|
-| ① 執筆 | 水 | 古川（Claude Code） | `/brandri-draft` |
-| ② 目視チェック → 投稿 | 水 | 古川 | `git push` → `post` |
+| ①-a 構成案の壁打ち | 月〜火 | 古川 ⇄ Claude Code | `/brandri-draft`（テーマ指定）→ 構成案 → レビュー → 修正 |
+| ①-b 執筆 → 本文レビュー | 火〜水 | 古川 ⇄ Claude Code | 本文をチャットで提示 → レビュー → 修正 |
+| ② 本人OK → 投稿 | 水 | 古川 | 「OK」と明示 → `git push` → `post` |
 | ③ レビュー | 随時 | 早川・古川（Slack） | なし（👀 / 👍 / 🗑️ / コメント） |
 | ④ 修正 | 随時 | 古川 | md を直す → `resolve` |
 | ⑤ 承認の取り込み | 随時 | 古川 | **`sync`**（これで 🗓️ が付く） |
@@ -90,22 +91,45 @@ cd ~/Documents/vscode/highlite-design-system
 
 ## 3. 各段階の手順
 
-### ① 執筆（水）
+### ① 執筆（月〜水）— 壁打ち方式
+
+**いきなり書かない。いきなり Slack に出さない。**
 
 ```
-/brandri-draft
+/brandri-draft            ← テーマを添える（例：「インナーブランディング 事例で」）
 ```
 
-`marketing/keyword-progress.md` の上から未着手キーワードを1つ選び、経営者トラックの規範
-（`.claude/agents/brandri-writer-executive.md`）で執筆して `drafts/` に md を書く。
-書いたら `keyword-progress.md` の status を更新する。
+テーマ指定がなければ、Claude Code が `keyword-progress.md` の次の未着手キーワードを提案する。
 
-### ② 目視チェック → 投稿（水）
+```
+①-a 構成案の壁打ち
+    Claude Code が1メッセージで提示：
+      1. 痛みの仮説（そのキーワードで検索する経営者は何に困っているか）
+      2. 最近のトレンド（日次サマリ＋web検索。出典URL付き）
+      3. 参考記事（実在確認済み。URL付き）
+      4. 記事の構成（title案2〜3・leadの一文・01〜04の見出しと要旨・pullquote・takeaways）
+      5. Highliteの見解（brand-voice を踏まえ、この記事でどこに立つか）
+      6. 既存記事との重複チェック
+    → 古川がレビュー → 指摘箇所だけ修正 → OKまで繰り返す
+    → OKが出た時点で keyword-progress.md を `執筆中` に
 
-**人の目でしか見られない最重要チェック：**
+①-b 執筆 → 本文レビュー
+    Claude Code が drafts/ に md を保存し、本文全文をチャットに貼る
+    → 古川がレビュー → 指摘箇所だけ修正 → OKまで繰り返す
+```
 
-- **title・lead・01章・02章に「ブランディング」が出ていないか**（初出は03章）。
-  経営者トラックの生命線で、Claude Code が無意識に早く出しがちな箇所
+規範：`.claude/agents/brandri-writer-executive.md`／句読点：`marketing/kutouten-rules.md`
+
+### ② 本人OK → 投稿（水）
+
+**古川が「OK」「Slackに出して」と明示するまで、Claude Code は post を実行しない。**
+
+チャットレビューで見ておく最重要チェック：
+
+- **タイトルだけで何の記事か分かるか**（痛み語＋題材。キーワードを入れてよい）
+- **lead・01章・02章に「ブランディング」が出ていないか**（本文の初出は03章。タイトルは例外）
+- **記事になっているか**（台詞→反応の語り、情景描写、独白の書き出しは小説。不可）
+- **句読点**（一文約50字・読点1〜2個。読点3つ以上の文がないか）
 - 禁止語（世界観／トンマナ／クリエイティブ／パーパス／ナラティブ 等）が混じっていないか
 - 実在確認できない固有名詞・数値・引用が入っていないか
 
@@ -118,6 +142,7 @@ git add marketing/articles/brandri && git commit -m "brandri: draft" && git push
 
 **順番を逆にすると、Slack の「本文を読む」リンクが 404 になる。**
 post は front matter に `slack.ts` を書き込み、二重投稿を拒否する。
+post 後、`keyword-progress.md` の status を `レビュー中` にしてもう一度 commit / push する。
 
 ### ③ レビュー（随時・Slack）
 
