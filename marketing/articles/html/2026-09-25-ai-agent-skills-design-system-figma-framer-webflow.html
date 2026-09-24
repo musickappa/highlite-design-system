@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>「AIで作ったのに、AIっぽい」を消す機能 ― Figma・Framer・Webflowが3週間で同じ答えにたどり着いた理由</title>
+<style>
+  :root {
+    --text: #1f2430;
+    --muted: #6b7280;
+    --accent: #0f6b5c;
+    --bg: #fafaf8;
+    --card: #ffffff;
+    --border: #e5e3dc;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic UI", Meiryo, sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 24px 64px;
+  }
+  h1 {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    margin: 0 0 8px;
+    letter-spacing: 0.01em;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 20px;
+    margin-bottom: 32px;
+  }
+  h2 {
+    font-size: 1.25rem;
+    margin: 44px 0 12px;
+    padding-left: 12px;
+    border-left: 4px solid var(--accent);
+    line-height: 1.5;
+  }
+  .summary {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 24px 0;
+  }
+  .summary h2 {
+    margin: 0 0 8px;
+    padding-left: 0;
+    border-left: none;
+    font-size: 1.05rem;
+    color: var(--accent);
+  }
+  .summary ol { margin: 0; padding-left: 1.3em; }
+  .summary li { margin-bottom: 6px; }
+  a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  strong { font-weight: 700; }
+  ul, ol { padding-left: 1.4em; }
+  li { margin-bottom: 6px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.92rem;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background: var(--card);
+    font-weight: 700;
+  }
+  blockquote {
+    margin: 20px 0;
+    padding: 12px 20px;
+    border-left: 4px solid var(--border);
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+  footer {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px 40px;
+    color: var(--muted);
+    font-size: 0.8rem;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>「AIで作ったのに、AIっぽい」を消す機能 ― Figma・Framer・Webflowが3週間で同じ答えにたどり着いた理由</h1>
+  <p class="meta">
+    Highliteトレンド記事 #069 | 2026-09-25 | テーマ: AIデザイン・AIサイト制作ツール<br>
+    ソース: <a href="https://www.framer.com/blog/skills/" target="_blank" rel="noopener">Framer公式ブログ「Introducing Skills for the Framer Agent」</a> /
+    <a href="https://community.webflow.com/updates/post/webflow-is-now-available-in-codex-ycig4oR3kKZDPio" target="_blank" rel="noopener">Webflow Community Updates</a> /
+    <a href="https://www.figma.com/newsroom/" target="_blank" rel="noopener">Figma Newsroom</a> /
+    <a href="https://wayf.ai/blog/no-code-platforms-ship-their-own-agents/" target="_blank" rel="noopener">wayf.ai「Webflow, Framer and Medusa Ship Agents Inside the Platform」</a> /
+    Deloitte Digital Media Trends 2026 + Web横断調査(直近30日)
+  </p>
+
+  <div class="summary">
+    <h2>結論サマリー(3行)</h2>
+    <ol>
+      <li>Figma・Framer・Webflowが2026年8月下旬〜9月にかけて相次いで「AIエージェントに自社のデザインルールを教える」機能を実装した。3社がほぼ同時に同じ答えを出したのは偶然ではない。</li>
+      <li>背景には「AI生成物は放っておくと全部同じ顔になる」という実害がある。Deloitteの調査では、ブランドガイドラインなしのAI生成クリエイティブはブランド想起率が<strong>35%低下</strong>するというデータも出ている。</li>
+      <li>ただし懐疑論も強い。この種の機能は"デザインシステムをそのプラットフォームに縛りつける"ロックイン強化策でもあり、Highliteのように複数ツールを横断提案する立場からは冷静な目利きが要る。</li>
+    </ol>
+  </div>
+
+  <h2>1. 3社がほぼ同時に「エージェントの躾け方」を実装した</h2>
+  <p>2026年8月下旬から9月にかけて、主要なノーコード/AIデザインプラットフォームが立て続けに似た機能をリリースした。</p>
+  <table>
+    <thead>
+      <tr><th>日付</th><th>プラットフォーム</th><th>機能名</th><th>内容</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>8/24</td><td>Webflow</td><td>Codex向けSkills</td><td>ChatGPT/Codex上でSEO監査・CMS編集・コードレビューなどの定型作業をSkillとして実行</td></tr>
+      <tr><td>9/2</td><td>Webflow</td><td>Agent Instructions</td><td>サイトの情報からブランドガイドライン・デザインシステム・アセット規約・CMS方針の4テンプレートを自動生成しエージェントに常時参照させる</td></tr>
+      <tr><td>9/16-17</td><td>Figma</td><td>Weaveコミュニティ公開 / Figmaノード</td><td>自作の生成AIワークフローをコミュニティに公開、Figma Designのフレームをそのままweaveワークフローのノードとして接続可能に</td></tr>
+      <tr><td>9/22</td><td>Framer</td><td>Skills</td><td>コンポーネント・テキストスタイル・カラー・CMSフィールドなど"キャンバス上の実体"に紐づいた指示をSkill化し、<code>/design-system</code>のようなスラッシュコマンドやAIの自動判断で呼び出せる</td></tr>
+    </tbody>
+  </table>
+  <p>いずれも狙いは同じで、「毎回同じ説明を書かなくてもエージェントが"うちのルール"通りに作る」ことだ。Framerの公式ブログは「スキルはキャンバスに接続されている――コンポーネント、テキストスタイル、色、CMSフィールド、ページに。そこが重要な違いだ」と説明しており、単なるプロンプトのテンプレート化ではなく、実際のデザインファイルと紐づいている点を強調している。</p>
+
+  <h2>2. なぜ今なのか ― 「AIデザインは全部同じ顔」問題が数字に出た</h2>
+  <p>この機能ラッシュの背景には、AI生成デザインの均質化という業界共通の悩みがある。生成モデルは開かれた指示に対して統計的に最も"ありがちな"答えを選びやすく、その結果として2026年の"AIっぽいデザイン"の代名詞は「暗い背景に青いグラデーション」だと揶揄されるほど定型化が進んだ。</p>
+  <p>これは単なる美的な不満にとどまらない。Deloitteの2026年Digital Media Trendsレポートは、強いブランドガイドラインを伴わないAI生成クリエイティブを使った場合、ブランド想起率が明確なガイドラインを使うケースに比べて<strong>35%低下</strong>すると報告している。「AIで速く作れる」ことと「ブランドとして機能する」ことの間にギャップが生まれ、それが企業の実損として可視化されたことが、3社が同時に対策を打った直接の理由と見てよい。</p>
+
+  <h2>3. 実装方法は各社バラバラ ― "教え方"の設計思想の違い</h2>
+  <p>同じ課題への解でも、アプローチは分かれている。Webflowは「サイトの既存情報からテンプレートを自動生成する」トップダウン型、Framerは「キャンバス上の実体(コンポーネントやページ)を指し示して覚えさせる」ボトムアップ型、Figmaは「ワークフローそのものを部品化してコミュニティで再利用する」オープンエコシステム型に近い。どれが正解というより、ツールごとの設計思想の違いが可視化された形だ。</p>
+
+  <h2>4. 懐疑派の指摘:これは"ロックイン強化"でもある</h2>
+  <p>AI活用の分析メディア<a href="https://wayf.ai/blog/no-code-platforms-ship-their-own-agents/" target="_blank" rel="noopener">wayf.ai</a>は、これらの機能が実務上の摩擦を減らす一方で「チームがプラットフォームを離れる本当の理由はもっと深いレイヤーにある」と指摘する。コンテンツはそのプラットフォームのデータベースに閉じ込められ、エディタ席課金は人数に比例し、CMSのコレクション数には上限があり、そして――皮肉なことに――せっかく作り込んだデザインシステムそのものが他ツールに移植できない。「エージェントに躾けたルール」は、実はそのプラットフォームへの依存を一段深くする仕掛けでもある。</p>
+
+  <h2>Highliteへの示唆</h2>
+  <ol>
+    <li><strong>「デザインシステムのポータビリティ」を提案の武器にする</strong> - 特定ツールのSkill機能に依存させるのではなく、クライアントのブランドルールをツール非依存の形(トークン・スタイルガイド文書)で持たせる提案は、ロックイン懸念への明確な差別化になる。</li>
+    <li><strong>Deloitteの35%という数字は顧客教育の入り口になる</strong> - 「AIで自作したLPやSNS画像がなぜか刺さらない」と感じている中小企業に対し、"ブランドガイドラインの有無で想起率35%変わる"というデータは、Highliteの提供価値(ブランド設計込みの支援)を裏付ける具体的根拠として使える。</li>
+    <li><strong>AIツール選定コンサルの需要が増える</strong> - Figma/Framer/Webflowが機能を分岐させたことで、「うちはどれを使うべきか」という相談は今後さらに増える。3社の設計思想の違いを整理したこの記事自体が、比較コンテンツ・提案資料の下敷きになる。</li>
+  </ol>
+</main>
+<footer>Highlite内部資料・非公開</footer>
+</body>
+</html>
