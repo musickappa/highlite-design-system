@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Liquid Glassの1年 ― Appleの後退と中小企業サイトへの示唆</title>
+<style>
+  :root {
+    --text: #1f2430;
+    --muted: #6b7280;
+    --accent: #0f6b5c;
+    --bg: #fafaf8;
+    --card: #ffffff;
+    --border: #e5e3dc;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic UI", Meiryo, sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 24px 64px;
+  }
+  h1 {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    margin: 0 0 8px;
+    letter-spacing: 0.01em;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 20px;
+    margin-bottom: 32px;
+    word-break: break-word;
+  }
+  .meta a { color: var(--muted); }
+  h2 {
+    font-size: 1.25rem;
+    margin: 44px 0 12px;
+    padding-left: 12px;
+    border-left: 4px solid var(--accent);
+    line-height: 1.5;
+  }
+  .summary {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 24px 0;
+  }
+  .summary h2 {
+    margin: 0 0 8px;
+    padding-left: 0;
+    border-left: none;
+    font-size: 1.05rem;
+    color: var(--accent);
+  }
+  .summary ol { margin: 0; padding-left: 1.3em; }
+  .summary li { margin-bottom: 6px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin: 16px 0;
+    background: var(--card);
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: #f1efe8; font-weight: 600; }
+  blockquote {
+    margin: 20px 0;
+    padding: 14px 20px;
+    background: var(--card);
+    border-left: 4px solid #c9c5b8;
+    border-radius: 0 8px 8px 0;
+    color: #3d4351;
+  }
+  a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  strong { font-weight: 700; }
+  ul, ol { padding-left: 1.4em; }
+  li { margin-bottom: 6px; }
+  .aside {
+    font-size: 0.9rem;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    margin-top: 44px;
+    padding-top: 20px;
+  }
+  footer {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px 40px;
+    color: var(--muted);
+    font-size: 0.8rem;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>「美しいけど読めない」― Appleも5ヶ月で後退したLiquid Glass、中小企業サイトが"今すぐ真似"してはいけない理由</h1>
+  <p class="meta">
+    Highliteトレンド記事 #076 | 2026-10-02 | テーマ: Webデザイン最新手法・UI/UXトレンド<br>
+    ソース:
+    <a href="https://techcrunch.com/2026/06/08/apple-is-tweaking-its-controversial-liquid-glass-design/" target="_blank" rel="noopener">TechCrunch「Apple is tweaking its controversial Liquid Glass design」</a> /
+    <a href="https://applech2.com/archives/20260915-macos-27-golden-gate-now-available.html" target="_blank" rel="noopener">applech2「macOS 27 Golden Gateを正式にリリース」</a> /
+    <a href="https://www.apple-hacks.com/entry/macos27-liquid-glass-transparency-sidebar-design" target="_blank" rel="noopener">となりずむ「macOS 27でLiquid Glass再調整、透明度と角丸を見直し」</a> /
+    <a href="https://tbreak.com/macos-27-liquid-glass-readability-fixes/" target="_blank" rel="noopener">tbreak「Apple plans macOS 27 design tweaks to fix Liquid Glass readability issues」</a> /
+    <a href="https://note.com/takumi_uchu/n/n1488a1b63706" target="_blank" rel="noopener">note・takumi「リキッドグラスは本当に使いやすいのか？アクセシビリティの視点から」</a> /
+    <a href="https://www.grafit.agency/blog/why-you-shouldnt-use-the-liquid-glass-effect-on-your-website-yet" target="_blank" rel="noopener">grafit.agency「Why you shouldn't use the Liquid Glass effect on your website yet」</a> /
+    <a href="https://soreiine.jp/magazine/design/liquid-glass-design/" target="_blank" rel="noopener">soreiine.jp「リキッドグラス（Liquid Glass）をCSSで実装する」</a> /
+    <a href="https://mivibzzz.com/resources/web-development/apple-liquid-glass-ios-26-web-design-trend" target="_blank" rel="noopener">mivibzzz「Apple's Liquid Glass Is Ugly — And It Might Change Web Design Forever」</a>
+    + Web横断調査(直近30日中心)
+  </p>
+
+  <div class="summary">
+    <h2>結論サマリー(3行)</h2>
+    <ol>
+      <li>Appleが2025年6月に鳴り物入りで発表した半透明UI「Liquid Glass」は、「読みにくい」「Windows Vistaみたい」という批判を1年以上浴び続け、2026年9月15日公開のmacOS 27 Golden Gateで透明度を細かく調整できるスライダーを追加するなど、事実上の路線修正に追い込まれた。</li>
+      <li>それでもWebデザイン業界では今、「リキッドグラス/グラスモーフィズム」が2026年の主要トレンドの一つとして紹介され続けている。だがbackdrop-filterの多用はWCAGが定めるコントラスト比4.5:1を割り込みやすく、モバイル端末のGPU負荷・バッテリー消費を増やす実害を伴う。</li>
+      <li>中小企業サイトが見た目の流行だけを追ってガラス効果を全面導入すると、Apple自身が1年以上かけて修正している欠陥(読みにくさ・一貫性のなさ)をそのまま背負い込むリスクがある。「使うなら要所に1〜2箇所、背景コントラストを必ず担保」が現実的な落としどころだ。</li>
+    </ol>
+  </div>
+
+  <h2>1. Appleが自ら認めた「未完成デザイン」― Liquid Glassの1年</h2>
+  <p>Liquid Glassは2025年6月のWWDCでiOS 26・macOS Tahoeなどの新しい統一デザイン言語として発表された。半透明のパネルが背景の色や動きを拾って揺らぐ、視覚的にはインパクトの強いUIだ。発表直後からReddit上の反応は割れ、「ガラスのように美しい」という声がある一方、「文字が読みにくい」「Windows Aero 2.0」「Vistaの再来」といった酷評も相次いだ。Appleは2025年秋のiOS 26.1で透明度を調整できるオプションを追加し、2026年3月のiOS 26.4でもさらにカスタマイズ機能を増やしている。</p>
+  <p>そして2026年9月15日、Appleは次期macOS「27 Golden Gate」を正式リリースした。目玉の一つが、Liquid Glassの透明度と色の濃さを「クリア〜不透明〜完全な色付き」まで細かく調整できるスライダーの追加だ。光の屈折もより均一になり、コントラストが引き上げられ、ツールバーの見た目も統一されたほか、角丸も控えめに戻された。国内メディアも「未完成だったUIをAppleが手直しした」と報じており、これは実質的に「鳴り物入りで発表した新デザインの欠陥を、1年以上かけて修正し続けている」ことの裏返しでもある。</p>
+
+  <h2>2. Web業界は何周遅れでトレンド化しているか</h2>
+  <p>興味深いのは、本家Appleが読みにくさの火消しに追われている最中に、Webデザイン業界では「リキッドグラス」「グラスモーフィズム」が2026年の主要トレンドの一つとして紹介され続けている点だ。国内外のデザイン系メディアはこぞって「触覚的UI」「ガラスのような質感」をCSSで再現する実装ガイドを公開しており、backdrop-filterプロパティを使えば比較的簡単にブラー+半透明の見た目を作れることも後押ししている。</p>
+  <p>だが実装系の記事を横断すると、警告のトーンも強まっている。ある海外エージェンシーのブログは「まだ自社サイトでLiquid Glass風エフェクトを使うべきではない」と題し、Appleほどの開発リソースを持たない一般サイトがこの効果を安全に実装するのは難しいと指摘する。</p>
+
+  <h2>3. 実害:コントラスト崩壊とバッテリー消費</h2>
+  <p>半透明ガラス表現が抱える問題は見た目の好みだけではない。ガラスパネルは背景によって見え方が大きく変わるため、明るい背景と暗い背景の両方でテストしないと、文字と背景のコントラスト比がWeb標準の4.5:1を容易に下回る。Reddit上の指摘でも「前景と背景が競合して可読性を損なう」「アクセシビリティ設定(モーション削減)を有効にするとコントラストが崩れる」という声が上がっており、低視力やモーション過敏のユーザーには負担が大きいデザインだという批判が根強い。</p>
+  <p>さらにbackdrop-filterによるぼかし処理はGPU負荷が高く、ガラス要素を重ねるほどモバイル端末の発熱・バッテリー消費が増える。目安として、ぼかし半径25pxを超えるとモバイルでの性能劣化が顕著になり、3〜5個程度のガラス要素なら最新端末への影響は軽微だが、10個を超えると中価格帯スマートフォンで体感できるカクつきが起きるとされる。Appleがシステム設定として「透明度を下げる」「モーションを減らす」機能を用意できるのに対し、個別のWebサイトはそうした逃げ道をユーザーに提供できない点も見落とされがちだ。</p>
+
+  <h2>4. 「それでも使うなら」の現実的な実装ルール</h2>
+  <p>トレンドとして完全に無視する必要はないが、本家が1年かけて直している最中の表現を、検証なしに全面展開するのはリスクが大きい。実務的には次のルールが現実的だ。</p>
+  <ul>
+    <li>ガラス効果はファーストビューのヒーロー要素やナビゲーションなど、<strong>要所1〜2箇所に限定</strong>する</li>
+    <li>背景には常に<strong>不透明度の高いオーバーレイ</strong>を敷き、コントラスト比4.5:1を明暗どちらの背景でも機械的にチェックする</li>
+    <li><code>backdrop-filter</code>を多用する場合は<strong>ぼかし半径を抑え</strong>、同一画面内で重ねるガラス要素の数を絞る</li>
+    <li><code>prefers-reduced-motion</code>・<code>prefers-reduced-transparency</code>相当のユーザー設定を尊重し、効果を弱めた代替スタイルを用意する</li>
+  </ul>
+
+  <h2>Highliteへの示唆</h2>
+  <ol>
+    <li><strong>「流行っているから」で即採用しない姿勢を商品価値にする</strong> - Apple自身が1年がかりで修正している表現を検証なしに顧客サイトへ適用するのはリスクが高い。「トレンドを見極めた上で、要所にだけ効果的に使う」判断力こそがプロの制作会社の価値であり、営業トークとして言語化できる。</li>
+    <li><strong>アクセシビリティ診断をオプションメニュー化する</strong> - コントラスト比チェックやモーション設定への配慮は、中小企業の発注者自身は気づきにくいポイント。デザイン提案時に「WCAG準拠チェック」を付加価値サービスとして明示すれば差別化になる。</li>
+    <li><strong>パフォーマンス予算の説明材料として使う</strong> - 「見た目を凝るほどモバイルのバッテリー消費・表示速度が悪化する」という具体例は、過剰な装飾提案を抑えたい場面で顧客を説得する材料になる。Highliteの軽量・高速なサイト設計方針の裏付けとしても使える。</li>
+  </ol>
+</main>
+<footer>Highlite内部資料・非公開</footer>
+</body>
+</html>
