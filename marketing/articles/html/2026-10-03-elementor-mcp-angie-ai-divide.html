@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>プロ向け「MCP」とコンシューマー炎上「Angie」― Elementorが見せた同一製品内のAI分裂</title>
+<style>
+  :root {
+    --text: #1f2430;
+    --muted: #6b7280;
+    --accent: #0f6b5c;
+    --bg: #fafaf8;
+    --card: #ffffff;
+    --border: #e5e3dc;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic UI", Meiryo, sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 24px 64px;
+  }
+  h1 {
+    font-size: 1.7rem;
+    line-height: 1.5;
+    margin: 0 0 8px;
+    letter-spacing: 0.01em;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 20px;
+    margin-bottom: 32px;
+  }
+  h2 {
+    font-size: 1.25rem;
+    margin: 44px 0 12px;
+    padding-left: 12px;
+    border-left: 4px solid var(--accent);
+    line-height: 1.5;
+  }
+  .summary {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 24px 0;
+  }
+  .summary h2 {
+    margin: 0 0 8px;
+    padding-left: 0;
+    border-left: none;
+    font-size: 1.05rem;
+    color: var(--accent);
+  }
+  .summary ol { margin: 0; padding-left: 1.3em; }
+  .summary li { margin-bottom: 6px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+    margin: 16px 0;
+    background: var(--card);
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: #f1efe8; font-weight: 600; }
+  blockquote {
+    margin: 20px 0;
+    padding: 14px 20px;
+    background: var(--card);
+    border-left: 4px solid #c9c5b8;
+    border-radius: 0 8px 8px 0;
+    color: #3d4351;
+  }
+  a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  strong { font-weight: 700; }
+  ul, ol { padding-left: 1.4em; }
+  li { margin-bottom: 6px; }
+  .aside {
+    font-size: 0.9rem;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    margin-top: 44px;
+    padding-top: 20px;
+  }
+  footer {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px 40px;
+    color: var(--muted);
+    font-size: 0.8rem;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>プロ向け「MCP」とコンシューマー炎上「Angie」― Elementorが見せた同一製品内のAI分裂</h1>
+  <p class="meta">
+    Highliteトレンド記事 #077 | 2026-10-03 | テーマ: AIデザイン・AIサイト制作ツール<br>
+    ソース: <a href="https://elementor.com/blog/elementor-mcp-launch/" target="_blank" rel="noopener">Elementor公式「Introducing the Elementor MCP」</a> / <a href="https://elementor.com/blog/mcp-webgate-case-study/" target="_blank" rel="noopener">Elementor公式「Webgate agency using the Elementor MCP on a production site」</a> / <a href="https://www.ultimatewb.com/blog/13956/elementors-angie-ai-is-more-than-bloat-credits-subscriptions-and-a-growing-platform-problem/" target="_blank" rel="noopener">ultimatewb.com「Elementor's "Angie" AI Is More Than Bloat」</a> / <a href="https://theplusaddons.com/blog/remove-elementor-ai-nag-banners/" target="_blank" rel="noopener">theplusaddons.com「Disable Elementor AI: Remove Nag Banners & Angie」</a> / <a href="https://elementor.com/mcp/" target="_blank" rel="noopener">Elementor公式「MCP」</a> / <a href="https://colorlib.com/wp/elementor-statistics/" target="_blank" rel="noopener">Colorlib「Elementor Statistics 2026」</a> + Web横断調査(直近30日中心)
+  </p>
+
+  <div class="summary">
+    <h2>結論サマリー(3行)</h2>
+    <ol>
+      <li>世界のWordPressサイトの3割超・2,100万サイトに導入されているElementorが、2026年9月23日に「Elementor MCP」を正式公開。Claude Code・Codex・Cursorなどのエージェントが、HTMLではなく"本物の"Elementor構造を直接編集できるようになった。</li>
+      <li>ほぼ同時期にエディタへ組み込まれたコンシューマー向けAI「Angie」はReddit等で「切る方法を教えろ」という反発を招き、クレジット課金の不透明さが火種になっている。</li>
+      <li>同じ会社・同じ製品の中で「プロ向けの正確な自動化」と「押し付けがましいコンシューマーAI」が明暗を分けた構図は、Highliteが"AI活用"をどう見せるかを考える上で重要な教訓になる。</li>
+    </ol>
+  </div>
+
+  <h2>1. Elementor MCPとは何か ― AIエージェントが"本物の"構造を操作する</h2>
+  <p>2026年9月23日、Elementorは正式にMCP(Model Context Protocol)連携を公開した。これはClaude Code、Claude Desktop、Codex、Cursorなどのコーディングエージェントを、WordPressサイトのElementor構造そのものに接続する仕組みだ。従来のAI生成ツールが出力するのは独立したHTMLだったが、MCPはサイトの既存テーマ・プラグイン・カスタムフィールド・Elementorのデザインシステム(クラスや変数、レスポンシブ設定)を理解した上で、編集可能な正式なElementor要素としてページを構築する。</p>
+  <p>重要なのは「MCPが作ったものは自動公開されない」という安全設計だ。生成結果は必ずElementorエディタ上でレビュー・修正でき、公開は人間の判断に委ねられる。AIエージェントが本番サイトに直接触れることへの不安に、最初から応える構造になっている。</p>
+
+  <h2>2. Webgate代理店の実証 ― 既存の本番サイトを壊さずにAIを導入</h2>
+  <p>Elementor公式が公開したケーススタディでは、制作会社Webgateが自社の本番サイト(数年分のElementor V3コンポーネントとグローバルスタイルが積み重なった複雑な環境)に、MCPとClaude Code・Codexを使ったAI開発ワークフローを試験導入した。目的は「サイトを作り直さずに、既存のV3設計を壊さずにAIファーストの開発フローへ移行できるか」という、実務の制作会社が直面する現実的な課題だった。結果としてWebgateは、ランディングページ制作や定型的な更新作業が加速し、複雑で歴史のあるサイトでもエージェント開発を段階的に導入できるモデルになり得ると結論づけている。これはプロ向けツールとしてのMCPが「おもちゃ」ではなく実務で機能することを示す具体例だ。</p>
+
+  <h2>3. 同時に起きた「Angie」炎上 ― Reddit「切る方法を教えろ」</h2>
+  <p>一方、コンシューマー向けに展開されたAIアシスタント「Angie」は評判が対照的だ。Angieはチャット形式でページ・ウィジェット・コードスニペットを生成できる無料プラグインだが、エディタ上部に常駐するボタンとして強制的に組み込まれたことへの反発が大きい。Reddit r/elementorには「Angieって誰だよ。Elementor、これはやりすぎだ。切ってくれ」という投稿が立ち、設定でAI機能を「無効化」してもAngieボタンやウィジェットの宣伝表示は消えないという指摘も相次いだ。</p>
+  <p>さらに火種になっているのがクレジット課金の仕組みだ。ultimatewb.comの分析によれば、AIが自身の操作ミスで技術的な問題を起こした際、まずセキュリティプラグインやサーバー設定のせいにして原因解決を後回しにしながらクレジットを消費し、結果的に有料アップグレードへ誘導するような挙動が報告されている。未使用クレジットは翌月に持ち越されず、非技術者ほど消費ペースを把握しづらいという使いにくさも指摘されている。</p>
+
+  <h2>4. なぜ同じ会社でここまで差が出たのか</h2>
+  <p>MCPは「プロが自分の意思で接続し、生成物を必ずレビューしてから公開する」設計。Angieは「エディタに最初から存在し、オプトアウトしても完全には消えない」設計。前者はユーザーの主導権を前提に、後者は利用率(≒課金率)の最大化を前提にしている。この設計思想の違いが、同じ会社の同じ製品群の中で「実務で評価されるAI」と「炎上するAI」を同時に生み出した。AIツールの成否は、モデルの性能そのものよりも「誰がコントロールを握っているか」という導入設計で決まるという好例だ。</p>
+
+  <h2>Highliteへの示唆</h2>
+  <ol>
+    <li><strong>「主導権はクライアントにある」を明示する</strong> - MCPが評価された核心は「AIの生成物を人間が必ずレビューしてから公開する」構造にある。HighliteがAI活用を提案する際も、"AIが自動で全部やる"ではなく"AIが下書きし、最終判断は常にクライアント・Highliteにある"ことを明確に打ち出すべきだ。</li>
+    <li><strong>"強制感"のあるAI機能は信頼を壊す</strong> - Angie炎上の本質は機能そのものではなく、オプトアウトできない・消費が分かりにくいという"押し付け感"だった。提案資料や実装でAI機能を使う際は、オン/オフの選択権とコストの見通しをセットで示すことが差別化になる。</li>
+    <li><strong>"実務で動いた"事例が何より強い説得材料</strong> - Webgateのケーススタディが説得力を持つのは、複雑な既存サイトを壊さずに段階導入できたという具体性にある。Highlite自身のAI活用案件でも、既存サイトへの非破壊的な導入実績を事例化しておくことが、営業資料としての信頼性を高める。</li>
+  </ol>
+</main>
+<footer>Highlite内部資料・非公開</footer>
+</body>
+</html>
