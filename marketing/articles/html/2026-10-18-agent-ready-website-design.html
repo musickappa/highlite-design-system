@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>「人間向け49%、エージェント向け89%」― AIブラウザがサイトを"読む"時代、Web制作に新しい合格基準</title>
+<style>
+  :root {
+    --text: #1f2430;
+    --muted: #6b7280;
+    --accent: #0f6b5c;
+    --bg: #fafaf8;
+    --card: #ffffff;
+    --border: #e5e3dc;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic UI", Meiryo, sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 24px 64px;
+  }
+  h1 {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    margin: 0 0 8px;
+    letter-spacing: 0.01em;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 20px;
+    margin-bottom: 32px;
+  }
+  h2 {
+    font-size: 1.25rem;
+    margin: 44px 0 12px;
+    padding-left: 12px;
+    border-left: 4px solid var(--accent);
+    line-height: 1.5;
+  }
+  .summary {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 24px 0;
+  }
+  .summary h2 {
+    margin: 0 0 8px;
+    padding-left: 0;
+    border-left: none;
+    font-size: 1.05rem;
+    color: var(--accent);
+  }
+  .summary ol { margin: 0; padding-left: 1.3em; }
+  .summary li { margin-bottom: 6px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+    margin: 16px 0;
+    background: var(--card);
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: #f1efe8; font-weight: 600; }
+  blockquote {
+    margin: 20px 0;
+    padding: 14px 20px;
+    background: var(--card);
+    border-left: 4px solid #c9c5b8;
+    border-radius: 0 8px 8px 0;
+    color: #3d4351;
+  }
+  a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  strong { font-weight: 700; }
+  ul, ol { padding-left: 1.4em; }
+  li { margin-bottom: 6px; }
+  footer {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px 40px;
+    color: var(--muted);
+    font-size: 0.8rem;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>「人間向け49%、エージェント向け89%」― AIブラウザがサイトを"読む"時代、Web制作に新しい合格基準</h1>
+  <p class="meta">
+    Highliteトレンド記事 #092 | 2026-10-18 | テーマ: Webデザイン最新手法・UI/UXトレンド<br>
+    ソース: <a href="https://arxiv.org/abs/2607.12056" target="_blank" rel="noopener">arXiv「Designing Agent-Ready Websites for AI Web Agents」(Elnaffar &amp; Rashidi)</a> / <a href="https://aiagentindex.mit.edu/2025/chatgpt-atlas" target="_blank" rel="noopener">MIT AI Agent Index「ChatGPT Atlas」</a> / <a href="https://doubletaponair.com/chatgpt-atlas-accessibility-why-blind-users-should-wait/" target="_blank" rel="noopener">doubletaponair.com「ChatGPT Atlas Accessibility: Why Blind Users Should Wait」</a> / <a href="https://www.createwith.com/tool/perplexity/updates/perplexity-opens-comet-ai-browser-access-worldwide" target="_blank" rel="noopener">createwith.com「Perplexity Opens Comet AI Browser Access Worldwide」</a> / <a href="https://business.adobe.com/blog/ai-driven-traffic-surges-across-industries" target="_blank" rel="noopener">Adobe Business Blog「AI-Driven Traffic Surges Across Industries」</a> / <a href="https://www.thurrott.com/cloud/337211/google-announces-gemini-in-chrome-expansion-and-new-ai-features-for-small-businesses" target="_blank" rel="noopener">Thurrott「Google Announces Gemini in Chrome Expansion and New AI Features for Small Businesses」</a> / <a href="https://taprun.dev/agents-json-spec.html" target="_blank" rel="noopener">taprun.dev「agents.json — Schema.org WebAPI Profile」</a> / <a href="https://beancount.io/ja/blog/2026/07/16/ai-shopping-agents-agentic-commerce-small-retailer-guide" target="_blank" rel="noopener">beancount.io「AI Shopping Agents, Agentic Commerce: A Small Retailer's Guide」</a> / <a href="https://stellagent.ai/ja/insights/pwc-shopping-agents-rise" target="_blank" rel="noopener">stellagent.ai「PwC: Shopping Agents Rise」</a> + Web横断調査(直近30日中心)
+  </p>
+
+  <div class="summary">
+    <h2>結論サマリー(3行)</h2>
+    <ol>
+      <li>研究者Said ElnaffarとFarzad Rashidiの実証実験で、同じECサイトでもAIエージェントによるショッピングタスクの成功率は人間向けレイアウトで<strong>49.3%</strong>、エージェント向けに再設計した版では<strong>89.3%</strong>まで跳ね上がった。差を生んだのは見た目ではなく、JSON-LDでの商品データ公開や操作要素への安定ラベル付けといった「構造」への投資だ。</li>
+      <li>一方でOpenAIのChatGPT Atlasは画面読み上げソフトのユーザーには「ほぼ使えない」との指摘が相次ぎ、MIT AI Agent Indexも<strong>WCAG未準拠</strong>と報告している。「AIエージェントに読める」ことと「障害のある人間に使える」ことは別軸の課題だと、AIブラウザ自身が証明してしまった。</li>
+      <li>PerplexityのCometは2025年10月に世界で無料開放、GoogleもGemini in Chromeの対象地域を拡大し中小企業のGoogleビジネスプロフィール連携まで踏み込んだ。AI経由の小売サイト流入は2025年ホリデー商戦で前年比<strong>693%</strong>増(Adobe Analytics)。中小企業サイトの大半はまだ、この新しい"来訪者"に対応できていない。</li>
+    </ol>
+  </div>
+
+  <h2>1. 「人間向け49%→エージェント向け89%」が示した、見た目とは別の合格基準</h2>
+  <p>ICEME 2026に採択された論文「Designing Agent-Ready Websites for AI Web Agents」は、小規模なオンラインストアを人間向けレイアウトとエージェント向けレイアウトの2版用意し、AIエージェントにショッピングタスクを実行させる対照実験を行った。結果は、人間向け版のタスク成功率<strong>49.3%</strong>に対し、エージェント向け版は<strong>89.3%</strong>。「部分的にしか完了しなかった」件数は43件から3件に減り、平均ステップ数は約<strong>30.4%</strong>短縮された。</p>
+  <p>エージェント向け版が変えたのは見た目ではない。商品データをJSON-LD(構造化データ)で機械可読な形で公開し、ボタンやリンクなどの操作要素にセマンティックラベルと安定した識別子を付け、価格や在庫のような変動情報にはタイムスタンプを添えた。つまり「デザインを変える」のではなく「裏側のデータ構造を整える」ことが、タスク完了率を2倍近くまで引き上げたということだ。著者自身は小規模な実験であることを認め、実サイトでの追加検証を呼びかけている段階だが、方向性としては無視できない結果だ。</p>
+
+  <h2>2. AIブラウザは静かに普及期に入っている ― Atlas・Comet・Gemini in Chrome</h2>
+  <p>AIエージェントがサイトを"操作"する前提は、もはや研究室だけの話ではない。PerplexityのAIブラウザ「Comet」は2025年10月2日に全世界・無料で開放され、利用者数の推計には幅があるものの(四半期で数百万人規模という推計から、2026年第1四半期に大きく伸びたとする推計まで様々)、無料開放を機に急速に裾野を広げているのは間違いない。GoogleもGemini in Chromeの対象地域を北米以外に拡大し、中小企業向けにはGoogleビジネスプロフィールと連携して検索インプレッションの分析や営業時間の更新、レビュー返信文の下書きまでAIが代行できる機能を打ち出した。</p>
+  <p>AI経由の来訪が実際に売上へ影響している数字もある。Adobe Analyticsによれば、米国の小売サイトへのAI経由トラフィックは2025年のホリデー商戦で前年比<strong>693%</strong>増(11月は769%増、12月は673%増)、しかもAI経由の訪問者は他の経路より<strong>31%</strong>高い確率で購入に至ったという。母数の小さい領域の急成長である点は注意が必要だが、「AIがユーザーに代わってサイトを訪れ、情報を集め、時には購入まで行う」という前提は、もはや仮説ではなく現在進行中の変化だ。</p>
+
+  <h2>3. ChatGPT Atlasの"読み上げ事故"が突いた、もう一つの死角</h2>
+  <p>ここで見落とされがちなのが、AI向けの機械可読性と、人間の障害のあるユーザー向けのアクセシビリティは同じではないという事実だ。OpenAIのAIブラウザ「ChatGPT Atlas」は、画面読み上げソフトのユーザーにとってボタンにラベルが無く、オンボーディング自体が操作できないなど「ほぼ使えない」状態にあると専門家の解説で指摘され、MIT AI Agent Indexも<strong>WCAG(Web Content Accessibility Guidelines)に未準拠</strong>と評価している。</p>
+  <p>つまり、エージェント企業自身が作ったブラウザが、人間の障害のあるユーザーへの配慮では既存のWeb標準に追いついていない。これは中小企業にとって重要な示唆を含む。「AIエージェントに読まれるためにJSON-LDを足す」ことと「スクリーンリーダー利用者が迷わず操作できるようにARIAラベルを整える」ことは、重なる部分はあっても別の作業だ。片方だけ対応して終わり、にはならない。</p>
+
+  <h2>4. 中小企業サイトが備えるべき3つの土台 ― GEO・API連携・運用体制</h2>
+  <p>エージェント時代のEC/BtoCサイト対応について、PwCは「①構造化データによる発見性最適化(GEO)」「②API経由のチェックアウト対応」「③AIと協働できる業務体制の整備」の3本柱を挙げている。すでにWeb全体の3割強がSEO目的でSchema.org準拠のJSON-LDを公開しており、その延長で「agents.json」のようにエージェントとの対話方法を宣言する新しい仕様案も登場している。価格・在庫・サイズ展開・返品ポリシーが構造化データで機械可読な形になっていなければ、エージェントは多くの場面で「何もできない」まま離脱するとの指摘も出ている。米国市場限定の推計ではあるが、エージェント経由のコマースは2030年までに最大1兆ドル規模の小売収益を生み得るとの見立てもあり、投資としての優先度は上がり続けている。</p>
+
+  <h2>Highliteへの示唆</h2>
+  <ol>
+    <li><strong>JSON-LD構造化データを「標準装備」のWeb制作メニューに格上げする</strong> - 商品・料金・営業時間・レビューなどをJSON-LDで公開するのはSEO目的でも既に一般的な作業だが、エージェント対応という新しい価値軸を乗せて提案できる。前述の実験のように、タスク成功率を2倍近く引き上げる具体的な根拠を提示できるのは強い説得材料になる。</li>
+    <li><strong>「エージェント対応診断」と「アクセシビリティ診断」を切り分けて両方提案する</strong> - ChatGPT Atlas自身がWCAG未準拠という事例は、両者が別課題である生きた証拠として使える。片方だけで安心させず、既存のアクセシビリティ対応メニューとセットで提案することで、診断の付加価値を高められる。</li>
+    <li><strong>Googleビジネスプロフィールの整備支援を"AI時代の基本動作"として再提案する</strong> - Gemini in Chromeがビジネスプロフィール情報を直接読みに来る以上、情報の正確性・最新性はもはやローカルSEOだけの話ではない。既存クライアントへの定期更新支援を、エージェント対応の第一歩として言語化し直す価値がある。</li>
+  </ol>
+
+  <p><em>余談: AIエージェント企業自身が作ったブラウザが、人間のアクセシビリティ基準を満たせていないという指摘は皮肉だ。「機械に読まれるサイト」を追いかける前に、まず自社の製品が人間に使えるかを確かめてほしい、というのが利用者側の率直な感想だろう。中小企業サイトがこの両方を同時に満たせれば、それ自体が競合との明確な差別化になる。</em></p>
+</main>
+<footer>Highlite内部資料・非公開</footer>
+</body>
+</html>
