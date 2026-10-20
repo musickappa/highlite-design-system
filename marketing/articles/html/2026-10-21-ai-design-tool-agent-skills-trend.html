@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>AIデザインツールが「道具を作る道具」に進化 ― Figma Skills・生成的プラグインと、広がる「エージェントに教える」新潮流</title>
+<style>
+  :root {
+    --text: #1f2430;
+    --muted: #6b7280;
+    --accent: #0f6b5c;
+    --bg: #fafaf8;
+    --card: #ffffff;
+    --border: #e5e3dc;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic UI", Meiryo, sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 24px 64px;
+  }
+  h1 {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    margin: 0 0 8px;
+    letter-spacing: 0.01em;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 20px;
+    margin-bottom: 32px;
+  }
+  h2 {
+    font-size: 1.25rem;
+    margin: 44px 0 12px;
+    padding-left: 12px;
+    border-left: 4px solid var(--accent);
+    line-height: 1.5;
+  }
+  .summary {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 24px 0;
+  }
+  .summary h2 {
+    margin: 0 0 8px;
+    padding-left: 0;
+    border-left: none;
+    font-size: 1.05rem;
+    color: var(--accent);
+  }
+  .summary ol { margin: 0; padding-left: 1.3em; }
+  .summary li { margin-bottom: 6px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+    margin: 16px 0;
+    background: var(--card);
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: #f1efe8; font-weight: 600; }
+  blockquote {
+    margin: 20px 0;
+    padding: 14px 20px;
+    background: var(--card);
+    border-left: 4px solid #c9c5b8;
+    border-radius: 0 8px 8px 0;
+    color: #3d4351;
+  }
+  a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  strong { font-weight: 700; }
+  ul, ol { padding-left: 1.4em; }
+  li { margin-bottom: 6px; }
+  footer {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px 40px;
+    color: var(--muted);
+    font-size: 0.8rem;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>AIデザインツールが「道具を作る道具」に進化 ― Figma Skills・生成的プラグインと、広がる「エージェントに教える」新潮流</h1>
+  <p class="meta">
+    Highliteトレンド記事 #095 | 2026-10-21 | テーマ: AIデザイン・AIサイト制作ツール<br>
+    ソース: <a href="https://www.figma.com/blog/agent-custom-tools-context-skills/" target="_blank" rel="noopener">Figma公式ブログ「Figma's design agent, now with custom tools and greater context」</a> / <a href="https://forum.figma.com/product-updates-3/everything-announced-at-config-2026-55221" target="_blank" rel="noopener">Figma Community Forum「Everything announced at Config 2026」</a> / <a href="https://s206.q4cdn.com/973901332/files/doc_financials/2026/q2/Figma-Q2-26-Press-Release.pdf" target="_blank" rel="noopener">Figma Q2 2026 Press Release</a> / <a href="https://www.framer.com/dictionary/agentsmd" target="_blank" rel="noopener">Framer公式glossary「AGENTS.md」</a> / <a href="https://webflow.com/blog/2026-builder-keynote" target="_blank" rel="noopener">Webflow公式ブログ「For the builders: canvas, CMS, and quality-of-life improvements from Webflow Conf 2026」</a> / <a href="https://www.designsystemscollective.com/generative-plugins-will-extend-your-design-system-and-break-it-05b22caf80b8" target="_blank" rel="noopener">Design Systems Collective「Generative plugins will extend your design system and break it」</a> / <a href="https://forum.figma.com/suggest-a-feature-11/plugin-scorecard-system-feature-request-inspired-by-obsidian-57441" target="_blank" rel="noopener">Figma Community Forum「Plugin scorecard system feature request」</a> + Web横断調査(直近30日中心)
+  </p>
+
+  <div class="summary">
+    <h2>結論サマリー(3行)</h2>
+    <ol>
+      <li>2026年のAIデザインツールは「AIが代わりに作る」段階から、「チームが自分たちのルールをAIエージェントに教え込む」段階へ移行した。Figmaの生成的プラグイン・Skills、FramerのAGENTS.md、WebflowのAIコード可視化編集が同じ方向を示している。</li>
+      <li>現場の熱狂は本物だが、「誰も見ていないプラグインが設計システムを静かに壊す」という懸念も同時に広がっている。生成の速さと、レビュー・保守の遅さのギャップが新しい業界課題になった。</li>
+      <li>実行(execution)が高速化・コモディティ化するほど、残る競争力は「ブリーフ・参照素材・目利き」に集中する。これはHighliteのようなAI+人のハイブリッド支援事業にとって、むしろ追い風のシグナルだ。</li>
+    </ol>
+  </div>
+
+  <h2>1. Figmaの「道具を作る道具」― 生成的プラグインとSkills</h2>
+  <p>Figmaは年次カンファレンス「Config 2026」(6月23〜25日、サンフランシスコ)で、デザインエージェントに「生成的プラグイン(Generative Plugins)」機能を追加した。自然言語で「こういうツールが欲しい」と伝えると、エージェントがコード不要でファイル内に再利用可能なプラグインを作ってくれる仕組みだ。レイヤーの並べ替えルール、選択範囲への余白統一、ファイル全体の色置き換えといった、従来は開発者でなければ作れなかった社内ツールを、デザイナー自身がプロンプトだけで生成できるようになった。</p>
+  <p>さらにFigmaの2026年第2四半期決算資料では、「Skills」という機能も紹介されている。これはチームが自社の業務プロセス・ガバナンス基準・ベストプラクティスをFigmaエージェントに教え込める仕組みで、生成的プラグイン(内部ツールをプロンプトで作る)と並んで、Figmaが単なる「デザインツール」から「自社ルールを覚えたエージェント基盤」への転換を進めていることを示す。</p>
+  <p>現場の反応も熱い。あるデザイナーはLinkedInで「生成的プラグインはMotionより面白い。3Dチルトの演出が欲しくて、いつものFigma Communityのプラグイン検索を今回は一切使わなかった」と投稿している。エンジニアに頼まずその場でツールを作れる体験は、多くのデザイナーにとって初めての感覚だ。</p>
+
+  <h2>2. Framerも追随 ― AGENTS.mdでエージェントに「自社ルール」を教える</h2>
+  <p>同じ流れはFramerにも及んでいる。Framer公式のglossaryには「AGENTS.md」の項目があり、AIコーディングエージェントにタスクの文脈・ワークフロールール・制約を与え、エージェントの振る舞いをチームの基準に合わせるためのプロジェクト指示ファイルと定義されている。関連して「Agent Skills」という用語も掲載され、繰り返し発生するタスク向けに、ドメイン固有のガイダンス・ツール・パターンをパッケージ化したモジュール的な能力定義として説明されている。</p>
+  <p>この「AGENTS.md」という標準そのものも急速に普及している。Linux Foundation傘下のAgentic AI Foundationが2025年12月に発表した際には、Amp・Codex・Cursor・Devin・Factory・Gemini CLI・GitHub Copilot・Jules・VS Codeなど主要なエージェントフレームワークを含め、<strong>6万を超えるオープンソースプロジェクトで採用済み</strong>とされた。ある分析では、発表からの週数で単純計算すると週あたり約3,750件のペースで増えている(推定値であり裏付けデータではない点は留意)。「エージェントに教えるファイルを書く」こと自体が、デザイン・開発現場の共通言語になりつつある。</p>
+
+  <h2>3. Webflowも「AIコードの可視化編集」に踏み出した</h2>
+  <p>Webflowは2026年9月1〜3日にボストンで開催した「Webflow Conf 2026」(現地1,500人超、オンライン3万人超参加)で、AIが生成したコードコンポーネントを、他の通常のコンポーネントと同じようにビジュアルエディタ上で直接編集できる機能を発表した。これまではAIコードコンポーネントへの変更はプロンプト経由でしか行えなかったが、今回から全顧客向けに提供が始まっている。「AIで生成する」と「人の手で微調整する」の境界が、エディタの中で地続きになったという意味で、Figma・Framerの流れと同じ方向を向いている。</p>
+
+  <h2>4. 熱狂の裏にある懸念 ― 「誰も見ていないプラグイン」問題</h2>
+  <p>一方で、この流れには新しいリスクも指摘されている。Design Systems Collectiveの分析記事は、生成的プラグインについて「チームの誰もがプラグインを自然言語で記述し、エージェントが作ってくれる。これは驚異的だが、同時にリスクでもある」と指摘する。従来のプラグインは開発者が保守し、Figmaのプラットフォーム変更に合わせて更新する責任を負っていた。生成的プラグインはその保守責任の所在を曖昧にしたまま、誰でも「社内ツールらしきもの」を量産できる状態を作り出している。</p>
+  <p>実際、Figma Community Forumには2026年9月、「あるプラグインが今も保守されているか、エンタープライズ・機密情報を扱う環境で本当に安全かが分かりにくい」として、プラグインの健全性・セキュリティレビュー状況を示すインジケーターを求める機能リクエストが投稿されている。生成の速度が上がるほど、レビューと信頼の仕組みが追いついていないという構図が浮かぶ。</p>
+
+  <h2>Highliteへの示唆</h2>
+  <ol>
+    <li><strong>「ルールを教える」ことが新しい商品になる</strong> - Figma SkillsやFramerのAGENTS.mdは、顧客企業ごとの業務プロセス・ブランドルールをAIエージェントに教え込む作業そのものに価値があることを示している。Highliteが持つ「クライアントの暗黙知を言語化する」力は、まさにこの"教える"工程の支援サービスとして商品化できる。</li>
+    <li><strong>「誰も見ていないAI生成物」への不安は信頼構築の切り口になる</strong> - 生成的プラグインの保守・レビュー不足への懸念は、自分で何でも作れる時代だからこそ「誰かが責任を持って見ている」ことの価値を高めている。AIで下書きし、プロが検証・保守するHighliteのハイブリッド体制は、この不安にそのまま応える提案になる。</li>
+    <li><strong>実行の高速化は"目利き"の価値を上げる</strong> - Qubikaの分析が指摘する通り、AIが実行を高速化するほど競争力は「ブリーフ・参照素材・目利き」に移る。Highliteが提供する企画・ディレクションの比重を、料金説明や提案資料で明確に言語化する好機だ。</li>
+  </ol>
+
+  <p><em>余談: Figma Community Forumの機能リクエストは「Obsidianのプラグインスコアカードに着想を得た」としている。AIが何かを量産する時代の次に来るのは、結局「それが信頼できるかを一目で分かるようにする仕組み」なのかもしれない。</em></p>
+</main>
+<footer>Highlite内部資料・非公開</footer>
+</body>
+</html>
