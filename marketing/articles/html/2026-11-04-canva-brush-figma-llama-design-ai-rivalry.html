@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>「発表から34分後に反撃」― CanvaとFigmaが見せた"デザイン編集AI"自前化競争、公称値をどう読むか</title>
+<style>
+  :root {
+    --text: #1f2430;
+    --muted: #6b7280;
+    --accent: #0f6b5c;
+    --bg: #fafaf8;
+    --card: #ffffff;
+    --border: #e5e3dc;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic UI", Meiryo, sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 24px 64px;
+  }
+  h1 {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    margin: 0 0 8px;
+    letter-spacing: 0.01em;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.85rem;
+    line-height: 1.7;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 20px;
+    margin-bottom: 32px;
+    word-break: break-word;
+  }
+  h2 {
+    font-size: 1.25rem;
+    margin: 44px 0 12px;
+    padding-left: 12px;
+    border-left: 4px solid var(--accent);
+    line-height: 1.5;
+  }
+  .summary {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 24px 0;
+  }
+  .summary h2 {
+    margin: 0 0 8px;
+    padding-left: 0;
+    border-left: none;
+    font-size: 1.05rem;
+    color: var(--accent);
+  }
+  .summary ol { margin: 0; padding-left: 1.3em; }
+  .summary li { margin-bottom: 6px; }
+  a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; word-break: break-word; }
+  strong { font-weight: 700; }
+  ul, ol { padding-left: 1.4em; }
+  li { margin-bottom: 6px; }
+  p { margin: 16px 0; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.92rem;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background: #f1f0ea;
+  }
+  footer {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px 40px;
+    color: var(--muted);
+    font-size: 0.8rem;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>「発表から34分後に反撃」― CanvaとFigmaが見せた"デザイン編集AI"自前化競争、公称値をどう読むか</h1>
+  <p class="meta">
+    Highliteトレンド記事 #108 | 2026-11-04 | テーマ: AIデザイン・AIサイト制作ツール<br>
+    ソース: <a href="https://fourweekmba.com/ai-figma-trained-llama-on-250000-examples-as-canva-ships-brush/" target="_blank" rel="noopener">FourWeekMBA「Figma Trained Llama on 250,000 Examples as Canva Ships Brush」</a> /
+    <a href="https://fourweekmba.com/ai-canva-builds-its-own-ai-model-says-it-cuts-edit-costs-46/" target="_blank" rel="noopener">FourWeekMBA「Canva Builds Its Own AI Model, Says It Cuts Edit Costs 46%」</a> /
+    <a href="https://www.canva.com/newsroom/news/canva-brush/" target="_blank" rel="noopener">Canva Newsroom「Introducing Canva Brush, a vision-language model for design」</a> /
+    <a href="https://www.capitalbrief.com/briefing/canva-launches-ai-design-editing-model-brush-48352e11-c62c-4319-973a-490efa945f92/" target="_blank" rel="noopener">Capital Brief「Canva launches AI design editing model 'Brush'」</a> /
+    <a href="https://daily.dev/posts/canva-s-new-design-model-doesn-t-generate-images-it-writes-code-to-edit-them--npbp1p7jc" target="_blank" rel="noopener">daily.dev「Canva's new design model doesn't generate images. It writes code to edit them.」</a> /
+    <a href="https://www.orcarouter.ai/blog/canva-brush-design-editing-vlm" target="_blank" rel="noopener">orcarouter.ai「Canva Brush Review: Design-Editing VLM With No Public API」</a> + Web横断調査(直近30日中心)
+  </p>
+
+  <div class="summary">
+    <h2>結論サマリー(3行)</h2>
+    <ol>
+      <li>Canvaは2026年10月29日、デザイン編集専用の自社開発AIモデル「Brush」を発表。既存デザインを"崩さず編集する"エージェント型で、編集コストを46%削減、処理速度を最大69%向上させたとCanva自身が主張している。</li>
+      <li>その発表からわずか34分後(複数メディアのタイムスタンプ比較による)、Figmaも自社ブログで「Llama 3.3 70Bを25万件以上の事例で追加学習させた」と明かし、デザインツール各社が外部AIへの依存を脱し、編集AIを自社の中核資産として競う構図が公然化した。</li>
+      <li>両社の性能数値はいずれもベンダー自己申告で、第三者ベンチマークや公開APIは現時点で存在しない。中小企業にAIデザインツールを提案・導入する側は、公称値をそのまま信じず「編集後も要素が崩れず残るか」を自ら検証する姿勢が欠かせない。</li>
+    </ol>
+  </div>
+
+  <h2>1. Canva Brushとは何か ― 「生成」ではなく「編集」専用のAIモデル</h2>
+  <p>Canvaは2026年10月29日、自社初のビジョン言語モデル(VLM)「Brush」を発表した。オープンウェイトのベースモデルを土台に、デザイン編集向けに追加学習(post-train)したものだ。</p>
+  <p>ポイントは、ゼロから画像を生成する従来の画像生成AIとは設計思想が違うこと。Canva自身の説明によれば、Brushは指示を受けると裏側でコードを書いて実行し、デザイン要素(テキストボックス・図形・画像)を調整したうえで結果を確認し、次の一手を判断する"エージェント型ループ"を回す。生成し直すのではなく、既存デザインを直接編集する仕組みだ。</p>
+  <p>その結果、Brushが編集した後もテキストボックスや図形は編集可能な状態のまま保持され、1枚の画像として「焼き付く(フラット化される)」ことがない、とCanvaは強調している。現時点ではCanva Pro契約者がCanva AI経由で一部の編集に利用できる段階で、公開APIはなく、第三者による独立ベンチマークもまだ存在しない。</p>
+  <p>Canvaが公表する数値は、従来の設計エージェントと比べて<strong>編集コストを46%削減、処理速度は最大69%向上</strong>というものだ。</p>
+
+  <h2>2. Figmaが"34分後"に見せた対抗カード</h2>
+  <p>同じ10月29日、Canvaの発表からおよそ34分後、Figmaも自社ブログで独自のAI編集モデルについて明らかにした。「以前使っていたLlama 3.3 70Bモデルの1つ」を25万件以上の事例で追加学習させ、当時のトップモデル群と編集タスクで競合できる性能を持たせたという説明だ。現行の本番編集モデルがどのベースモデルを使っているかは明言されていない。</p>
+  <p>このタイミングの近さ自体がメディアの注目を集めた。偶然の一致という見方もあるが、重要なのは、CanvaとFigmaという2大デザインツールが、揃って「編集AIモデルの自社内製化」を競い始めたという事実そのものだ。背景には、Canvaが2026年4月に「AI 2.0」でテンプレート中心からエージェント型プラットフォームへ転換し、Figma側も「Code to Canvas」などでAI機能を強化してきた流れがある。外部の大手AIベンダーに処理を外注する時代から、各社が自前のモデルで差別化を図る時代への移行が、この"34分差の発表"という形で表面化したと言える。</p>
+
+  <h2>3. 数字は"ベンダー公称"であることを忘れない</h2>
+  <p>ここで注意したいのは、両社が出した性能数値のどちらも、第三者による検証を経ていない自己申告値だということだ。Canvaの「46%コスト削減・69%高速化」は独立したベンチマークがなく、レビュー記事のorcarouter.aiも公開APIが存在しない点を指摘している。Figmaの「25万件学習」「トップモデルと競合」という説明も自社ブログの記述にとどまり、現行モデルの詳細は非開示のままだ。</p>
+  <p>つまり両社は、最新・最速・最安をめぐる広報合戦の初期段階にあり、実際の品質・安定性・再現性は、導入する側が自分で確かめるしかない。AIツールの比較記事や導入事例を読むときに「誰が検証した数字か」を常に確認する習慣が、今後ますます重要になる。</p>
+
+  <h2>4. 中小企業・Web制作の現場への影響</h2>
+  <p>「編集しても要素が崩れない」というBrushの方向性は、中小企業のSNS素材・バナー・LP修正といった"こまめな微調整"の場面では実務的なメリットになりうる。毎回ゼロから作り直すのではなく、既存デザインに手を加えるだけで済むなら、更新の心理的・時間的コストは確実に下がる。</p>
+  <p>一方で、各社が編集AIを自社モデルに切り替えていく過程では、ツールごとに出力の癖・精度・対応言語(特に日本語レイアウトの崩れやすさ)が変わりやすい。公称値だけで導入を決めると、実際の制作現場でギャップに直面するリスクがある。</p>
+
+  <h2>Highliteへの示唆</h2>
+  <ol>
+    <li><strong>"崩れない編集"を検証ポイントにしたツール選定支援</strong> ― Brushのような編集特化AIが広がるほど、クライアントは「結局どのツールが自社の素材に向くか」を判断できず迷う。日本語レイアウトでの崩れやすさや編集後の再編集可能性を実際に検証し、比較コンテンツ化することはリード獲得に直結する。</li>
+    <li><strong>ベンダー公称値を疑う視点を顧客教育に組み込む</strong> ― 「46%削減」「25万件学習」のような数字は検証されていない自社発表だと明示したうえで提案することで、Highliteは"誇張しない""冷静に見極める"専門家としての信頼を積み重ねられる。</li>
+    <li><strong>軽微な修正対応のパッケージ化を検討する好機</strong> ― 編集AIの進化で「ちょっとした修正」のコストが下がる流れは、Highlite自身がクライアント向けに提供する更新・保守プランの価格設計やスピード感を見直す材料になる。</li>
+  </ol>
+</main>
+<footer>Highlite内部資料・非公開</footer>
+</body>
+</html>
