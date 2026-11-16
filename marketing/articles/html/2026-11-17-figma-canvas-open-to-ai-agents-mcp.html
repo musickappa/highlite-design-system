@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Figmaが"キャンバスそのもの"をAIエージェントに開放 ― 創業者本人が認める「MCPは未完成」、現場検証が示す過信禁物のリアル</title>
+<style>
+  :root {
+    --text: #1f2430;
+    --muted: #6b7280;
+    --accent: #0f6b5c;
+    --bg: #fafaf8;
+    --card: #ffffff;
+    --border: #e5e3dc;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic UI", Meiryo, sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 24px 64px;
+  }
+  h1 {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    margin: 0 0 8px;
+    letter-spacing: 0.01em;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 20px;
+    margin-bottom: 32px;
+  }
+  h2 {
+    font-size: 1.25rem;
+    margin: 44px 0 12px;
+    padding-left: 12px;
+    border-left: 4px solid var(--accent);
+    line-height: 1.5;
+  }
+  .summary {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 24px 0;
+  }
+  .summary h2 {
+    margin: 0 0 8px;
+    padding-left: 0;
+    border-left: none;
+    font-size: 1.05rem;
+    color: var(--accent);
+  }
+  .summary ol { margin: 0; padding-left: 1.3em; }
+  .summary li { margin-bottom: 6px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+    margin: 16px 0;
+    background: var(--card);
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: #f1efe8; font-weight: 600; }
+  blockquote {
+    margin: 20px 0;
+    padding: 14px 20px;
+    background: var(--card);
+    border-left: 4px solid #c9c5b8;
+    border-radius: 0 8px 8px 0;
+    color: #3d4351;
+  }
+  a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  strong { font-weight: 700; }
+  ul, ol { padding-left: 1.4em; }
+  li { margin-bottom: 6px; }
+  .aside {
+    font-size: 0.9rem;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    margin-top: 44px;
+    padding-top: 20px;
+  }
+  footer {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px 40px;
+    color: var(--muted);
+    font-size: 0.8rem;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>Figmaが"キャンバスそのもの"をAIエージェントに開放 ― 創業者本人が認める「MCPは未完成」、現場検証が示す過信禁物のリアル</h1>
+  <p class="meta">
+    Highliteトレンド記事 #121 | 2026-11-17 | テーマ: AIデザイン・AIサイト制作ツール<br>
+    ソース: <a href="https://www.figma.com/blog/the-figma-canvas-is-now-open-to-agents/" target="_blank" rel="noopener">Figma公式ブログ「Agents, meet the Figma canvas」</a> / <a href="https://techcrunch.com/2026/10/14/figma-announces-new-features-to-define-how-agents-work-on-its-platform/" target="_blank" rel="noopener">TechCrunch「Figma announces new features to define how agents work on its platform」</a> / <a href="https://techcrunch.com/2026/10/20/figma-co-founder-dylan-field-thinks-mcp-is-not-a-perfect-protocol/" target="_blank" rel="noopener">TechCrunch「Figma co-founder Dylan Field thinks MCP is not a perfect protocol」</a> / <a href="https://bitovi.com/blog/figma-just-opened-the-canvas-to-agents.-heres-what-actually-happens" target="_blank" rel="noopener">Bitovi「Figma just opened the canvas to agents. Here's what actually happens」</a> / <a href="https://forum.figma.com/report-a-problem-6/figma-s-approach-breaks-the-core-promise-of-mcp-52507" target="_blank" rel="noopener">Figmaコミュニティフォーラム「Figma's approach breaks the core promise of MCP」</a> / <a href="https://koi.ai/blog/command-injection-flaw-in-framelink-figma-mcp-server-puts-nearly-1-million-downloads-at-risk" target="_blank" rel="noopener">Koi.ai「Command injection flaw in Framelink Figma MCP server puts nearly 1 million downloads at risk」</a> + Web横断調査(直近30日中心)
+  </p>
+
+  <div class="summary">
+    <h2>結論サマリー(3行)</h2>
+    <ol>
+      <li>Figmaは2026年10月、MCP(Model Context Protocol)経由でAIエージェントがFigmaファイルを直接編集できる新機能「use_figma」を公開し、Claude CodeやCodexなど外部ツールがキャンバス上でコンポーネントを作成・改修できるようになった。新規MCPパートナーも20社追加された。</li>
+      <li>その直後、共同創業者兼CEOのDylan Field氏自身が「MCPは完璧なプロトコルではない」「frontier labs(大手AI企業)に有利な設計になっている」と公言し、無制限な開放はデータ乱用やセキュリティリスクを高めると警鐘を鳴らした。</li>
+      <li>実際にエージェントを現場検証したBitoviやデザインシステムチームからは「リンクされたデザインシステムを明示的に指示しないと無視する」など過信できない実態が報告され、コミュニティフォーラムでも「MCP本来の約束を破っている」との批判が続いている。</li>
+    </ol>
+  </div>
+
+  <h2>1. Figmaが"エージェントの遊び場"をキャンバスに開いた</h2>
+  <p>Figmaは2026年10月14日、インドで開催したConfig India(ベンガルール)で、AIエージェントをデザインキャンバスに直接参加させる新機能を発表した。新しいMCPサーバーの<code>use_figma</code>ツールを使うことで、Claude CodeやCodexといった外部のAIコーディングエージェントが、Figmaファイル内のコンポーネントを自分で作成・編集できるようになった。あわせて、マークダウンで書いた指示書「スキル」でエージェントの振る舞いを制御する仕組みも導入され、OpenCode、Dia、Meta Muse、Sarvam AIなど新規20社とのMCP連携も発表された。コードレイヤー機能もオープンベータとして全プランに展開され、デザインツールが"人が操作する画面"から"AIも書き込める共同作業空間"へと踏み出した節目といえる。</p>
+
+  <h2>2. 創業者自身が「MCPは不完全」と認めた</h2>
+  <p>発表からわずか1週間後の10月20日、Dylan Field氏はメディア向けブリーフィングで、自社が推進してきたMCPについて「完璧なプロトコルではない」「改善の余地はたくさんある」と述べたとTechCrunchが報じた。同氏はMCPの設計が「frontier labs(最先端のAI開発企業)に有利になっている」とも指摘。さらに、企業データへの無制限なアクセスを許せばデータ乱用やセキュリティリスクが高まるとの懸念を語り、「ほとんどの利用者に悪用の意図はないが、Figmaは長期的に利用者を守るため、あらゆるシナリオを想定しなければならない」とした。自社の看板機能を推進する立場のCEOが、その基盤技術の未成熟さを公に認めた点は珍しく、業界内でも話題になった。</p>
+
+  <h2>3. コミュニティは「約束違反」「閉鎖的」と反発</h2>
+  <p>Figma公式コミュニティフォーラムのスレッド「Figma's approach breaks the core promise of MCP」では、Figmaが事前承認したクライアントのみを許可リスト方式で接続させている点に対し、「どのクライアントでもどのサーバーにも繋がる」のがMCP本来の約束のはずだと批判が投稿され、議論が続いている。Figma側は「ベータ期間中は意図的に対応クライアントを絞っている」と回答しているが、ユーザーからは「ローカルMCPサーバーがUI上で隠されている」「有料プラン限定機能にされるのでは」といった不満も出ている。さらに、Figma公式ではないサードパーティ製の「Framelink」Figma MCPサーバーでは、コマンドインジェクションの脆弱性(CVE-2025-53967)がダウンロード数約100万件規模で見つかったと報告されており(Koi.ai)、エージェント連携が広がるほど周辺エコシステムのセキュリティ管理が課題になることを示している。</p>
+
+  <h2>4. 現場検証:「指示しないと設計システムを無視する」</h2>
+  <p>Figmaの認定サービスパートナーであるBitoviは、公開直後にエージェントを構造化されたテストケースで検証した。デザインシステムを参照した上でのコンポーネント新規作成、リンクされたコンポーネントを使った画面構築、Figma Makeで作った出力を本番品質に整える作業などを試したところ、「リンクされたデザインシステムがあっても、明示的に使うよう指示しない限りエージェントは無視する」という挙動が確認された。Figma側はこれに対し「スキル」機能で既存のデザインシステムを拡張させる使い方を推奨している。別のデザインシステムチームによる数週間規模の実運用テストでも、「単発のプロンプトで本番品質のデザインシステムが生成されるわけではない」「デザインシステムを壊すこともあるため、まず複製して検証すべき」という結論が報告されており、"任せきり"には現時点でリスクが伴う。</p>
+
+  <h2>Highliteへの示唆</h2>
+  <ol>
+    <li><strong>「AIエージェント任せ」のリスクを説明できる専門家として立つ</strong> - Figmaの創業者自身が認めた通り、AIエージェントへのツール開放は発展途上で、セキュリティやデザインシステム破壊のリスクが現実に報告されている。Highliteは「AI連携は使うが、人が最終チェックする」運用を具体的な工程として提示することで、導入に迷う中小企業の不安に応えられる。</li>
+    <li><strong>デザインシステムの"土台"整備を提案の入口にする</strong> - Bitoviの検証が示す通り、AIエージェントの効果はリンクされたデザインシステムの有無と指示の質に左右される。中小企業の多くはそもそもデザインシステムが整っていないため、「AI活用の前にまず土台を整える」提案がそのまま受注につながる。</li>
+    <li><strong>最新ツールの"翻訳"コンテンツとしての価値</strong> - Figma・Adobe・Canvaなど主要ツールが相次いでAIエージェント化を進める一方、現場の実態(過信できない点・セキュリティ懸念)まで把握している中小企業は少ない。こうした動向を噛み砕いて伝える記事・セミナーは、信頼構築とリード獲得の両方に効く。</li>
+  </ol>
+
+  <p class="aside"><em>余談: Figmaコミュニティフォーラムでは、許可リスト方式への批判と並んで「ベータだから仕方ない」という擁護コメントも一定数見られる。ただ、創業者自身が『frontier labsに有利』と言い切った以上、中小のツール開発者やエージェンシーが同じ土俵で戦えるかという視点は、今後も注視する価値がある。</em></p>
+</main>
+<footer>Highlite内部資料・非公開</footer>
+</body>
+</html>
