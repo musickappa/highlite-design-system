@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>スクロール連動アニメーションが"4大ブラウザ共通機能"に ― Firefox 159のBaseline到達で、JS不要のCSSモーションが本番投入可能に</title>
+<style>
+  :root {
+    --text: #1f2430;
+    --muted: #6b7280;
+    --accent: #0f6b5c;
+    --bg: #fafaf8;
+    --card: #ffffff;
+    --border: #e5e3dc;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic UI", Meiryo, sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 24px 64px;
+  }
+  h1 {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    margin: 0 0 8px;
+    letter-spacing: 0.01em;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 20px;
+    margin-bottom: 32px;
+  }
+  h2 {
+    font-size: 1.25rem;
+    margin: 44px 0 12px;
+    padding-left: 12px;
+    border-left: 4px solid var(--accent);
+    line-height: 1.5;
+  }
+  .summary {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 24px 0;
+  }
+  .summary h2 {
+    margin: 0 0 8px;
+    padding-left: 0;
+    border-left: none;
+    font-size: 1.05rem;
+    color: var(--accent);
+  }
+  .summary ol { margin: 0; padding-left: 1.3em; }
+  .summary li { margin-bottom: 6px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+    margin: 16px 0;
+    background: var(--card);
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: #f1efe8; font-weight: 600; }
+  blockquote {
+    margin: 20px 0;
+    padding: 14px 20px;
+    background: var(--card);
+    border-left: 4px solid #c9c5b8;
+    border-radius: 0 8px 8px 0;
+    color: #3d4351;
+  }
+  a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  strong { font-weight: 700; }
+  ul, ol { padding-left: 1.4em; }
+  li { margin-bottom: 6px; }
+  .aside {
+    font-size: 0.9rem;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    margin-top: 44px;
+    padding-top: 20px;
+  }
+  footer {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px 40px;
+    color: var(--muted);
+    font-size: 0.8rem;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>スクロール連動アニメーションが"4大ブラウザ共通機能"に ― Firefox 159のBaseline到達で、JS不要のCSSモーションが本番投入可能に</h1>
+  <p class="meta">
+    Highliteトレンド記事 #123 | 2026-11-19 | テーマ: Webデザイン最新手法・UI/UXトレンド<br>
+    ソース: <a href="https://web.dev/blog/web-platform-10-2026" target="_blank" rel="noopener">web.dev「New to the web platform in October」(2026-10-29公開)</a> / <a href="https://developer.mozilla.org/en-US/Firefox/Releases/159" target="_blank" rel="noopener">MDN「Firefox 159 release notes for developers」</a> / <a href="https://groups.google.com/a/mozilla.org/g/dev-platform/c/uLZPrpA5Ic0" target="_blank" rel="noopener">Mozilla dev-platform「Intent to Ship: Scroll-driven Animations」</a> / <a href="https://developer.chrome.com/articles/scroll-driven-animations" target="_blank" rel="noopener">Chrome Developers「Animate elements on scroll with Scroll-driven animations」</a> / <a href="https://developer.chrome.com/blog/scroll-triggered-animations" target="_blank" rel="noopener">Chrome Developers「Scroll-triggered animations」</a> / <a href="https://caniuse.com/wf-scroll-driven-animations" target="_blank" rel="noopener">caniuse「Scroll-driven animations」</a> + Web横断調査(直近30日中心)
+  </p>
+
+  <div class="summary">
+    <h2>結論サマリー(3行)</h2>
+    <ol>
+      <li>2026年10月27日リリースのFirefox 159が「スクロール連動アニメーション(CSS <code>animation-timeline: scroll()</code> / <code>view()</code>)」をデフォルト有効化し、Chrome・Edge・Safariに続いてBaseline「Newly available」入りした。</li>
+      <li>これでJavaScriptのscrollイベント監視なしに、CSSだけで"スクロールに応じて要素が動く"演出が主要4ブラウザで本番投入可能になった。ブラウザがコンポジタースレッドで処理するため、メインスレッドを塞がずパフォーマンスへの悪影響も小さい。</li>
+      <li>中小企業サイトにとっては「重いJSアニメーションライブラリへの依存を減らしつつ、見栄えのある動きを安く実装できる」好機。Highliteの提案で"軽量・高速・今っぽい"を同時に訴求できる。</li>
+    </ol>
+  </div>
+
+  <h2>1. Firefox 159がついに「フラグなし」でスクロール連動アニメーションを有効化</h2>
+  <p>スクロールに応じて要素のフェードイン・拡大縮小・回転などを行う「スクロール連動アニメーション(Scroll-driven Animations)」は、2023年7月のChrome 115・Edge 115から非フラグ対応が始まり、2025年にSafari 26が追随していた。残る大きな壁がFirefoxだった。</p>
+  <p>Mozillaのエンジニア、Boris Chiouは2026年9月25日、Mozillaのdev-platformメーリングリストに「Intent to Ship: Scroll-driven Animations」を投稿し、Firefox 159でのデフォルト有効化を正式に表明。予定どおり2026年10月27日リリースのFirefox 159でこれが実現し、MDNのリリースノートにも「scroll-driven animations are now enabled by default」と明記された。</p>
+  <p>この変化はweb.devの月次まとめ「New to the web platform in October」(2026年10月29日公開)でも「Scroll-driven animations become Baseline」として紹介されており、Web標準上の節目として扱われている。</p>
+
+  <h2>2. 何が変わるのか ― JSのscrollイベント + requestAnimationFrameが不要に</h2>
+  <p>これまでスクロール連動の演出を実装するには、JavaScriptで<code>scroll</code>イベントを監視し、<code>requestAnimationFrame</code>で座標を計算してスタイルを書き換える、という負荷の高い実装が一般的だった。</p>
+  <p>CSSの<code>animation-timeline: scroll()</code>(スクロール位置そのものをタイムラインにする)と<code>animation-timeline: view()</code>(要素がビューポートに入ってから出るまでをタイムラインにする)を使えば、この処理をブラウザ側に委譲できる。ブラウザはこれをメインスレッドではなくコンポジタースレッドで解決するため、スクロール中のJS実行によるカク付きやメインスレッドブロックが起きにくい。</p>
+  <p>実装面での注意点として、現時点でも<code>@supports</code>を使った段階的実装(プログレッシブエンハンスメント)が推奨されている。未対応環境ではアニメーションなしでもコンテンツが正しく表示される設計にしておく必要がある。</p>
+
+  <h2>3. 次に来るのは「スクロールトリガー型」アニメーション</h2>
+  <p>スクロール連動アニメーション(進捗に応じて動く)とは別に、Chrome Developersのブログでは「スクロールトリガーアニメーション(<code>timeline-trigger</code>)」がChrome 145で導入される予定と案内されている。これは特定のスクロール位置を"トリガー"として、時間ベースのアニメーションを再生する仕組みで、進捗追従型とは用途が異なる。</p>
+  <p>さらにFirefoxにとってスクロール連動アニメーションは「Interop 2026」の優先項目に指定されており、Mozillaが今後も継続的に対応を深めていく姿勢を示している。つまりこの分野は一度の対応で終わらず、2026年を通じて段階的に拡張が続く領域だ。</p>
+
+  <h2>4. アクセシビリティとのセット運用が前提</h2>
+  <p>動きのあるUIは、めまいや乗り物酔いに似た症状を引き起こす利用者がいることが知られており、WCAGの観点では<code>prefers-reduced-motion</code>メディアクエリとの併用が実務上の前提になる。スクロール連動アニメーションを軽量に実装できるようになったからこそ、「動きを増やす」ではなく「動きを適切に制御する」設計判断の重要性がむしろ高まっている。</p>
+
+  <h2>Highliteへの示唆</h2>
+  <ol>
+    <li><strong>"軽量・高速・今っぽい"を同時に訴求できる技術的根拠ができた</strong> ― 従来はGSAPなどの重量級JSライブラリに依存していたスクロール演出を、CSSのみで代替できる場面が増えた。提案書やLPで「表示速度を落とさずに動きのある体験を実装できる」ことを具体的な技術根拠として説明できる。</li>
+    <li><strong>低予算の中小企業サイトでも"体験の質"を上げやすくなった</strong> ― 専用のJS実装やライブラリ導入コストが不要になった分、これまで予算的に難しかった中小企業のコーポレートサイトやLPにも、違和感のないスクロール演出を標準メニューとして組み込みやすくなる。</li>
+    <li><strong><code>prefers-reduced-motion</code>対応をセット販売の標準仕様にする</strong> ― 動きの実装を増やすタイミングは、アクセシビリティ配慮を標準装備にする良い機会でもある。「動きも配慮も両立したサイト」をHighliteの品質基準として明文化し、他社との差別化ポイントにできる。</li>
+  </ol>
+</main>
+<footer>Highlite内部資料・非公開</footer>
+</body>
+</html>
