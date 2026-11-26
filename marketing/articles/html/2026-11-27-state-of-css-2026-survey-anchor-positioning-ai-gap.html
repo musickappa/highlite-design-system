@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>「AIはまだ良いCSSを書けない」― State of CSS 2026調査(4,902人)が映す現場のリアル、Anchor Positioningの"期待と現実のギャップ"</title>
+<style>
+  :root {
+    --text: #1f2430;
+    --muted: #6b7280;
+    --accent: #0f6b5c;
+    --bg: #fafaf8;
+    --card: #ffffff;
+    --border: #e5e3dc;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic UI", Meiryo, sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 24px 64px;
+  }
+  h1 {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    margin: 0 0 8px;
+    letter-spacing: 0.01em;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 20px;
+    margin-bottom: 32px;
+  }
+  h2 {
+    font-size: 1.2rem;
+    margin: 44px 0 12px;
+    padding-left: 12px;
+    border-left: 4px solid var(--accent);
+    line-height: 1.5;
+  }
+  .summary {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 24px 0;
+  }
+  .summary h2 {
+    margin: 0 0 8px;
+    padding-left: 0;
+    border-left: none;
+    font-size: 1.05rem;
+    color: var(--accent);
+  }
+  .summary ol { margin: 0; padding-left: 1.3em; }
+  .summary li { margin-bottom: 6px; }
+  a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  strong { font-weight: 700; }
+  ul, ol { padding-left: 1.4em; }
+  li { margin-bottom: 6px; }
+  p { margin: 14px 0; }
+  footer {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px 40px;
+    color: var(--muted);
+    font-size: 0.8rem;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>「AIはまだ良いCSSを書けない」― State of CSS 2026調査(4,902人)が映す現場のリアル、Anchor Positioningの"期待と現実のギャップ"</h1>
+  <p class="meta">
+    Highliteトレンド記事 #131 | 2026-11-27 | テーマ: Webデザイン最新手法・UI/UXトレンド<br>
+    ソース: <a href="https://2026.stateofcss.com/en-US" target="_blank" rel="noopener">State of CSS 2026 公式サイト</a> /
+    <a href="https://2026.stateofcss.com/en-US/usage/" target="_blank" rel="noopener">同・Usageページ</a> /
+    <a href="https://2026.stateofcss.com/en-US/features/" target="_blank" rel="noopener">同・Featuresページ</a> /
+    <a href="https://patrickbrosset.com/articles/2026-08-07-state-of-css-2026/" target="_blank" rel="noopener">Patrick Brosset「State of CSS 2026」</a> /
+    <a href="https://daily.dev/posts/state-of-css-2026-results-are-out-favorite-new-feature-anchor-positioning-big-fanfare-spotty-sup-ua85kslvn" target="_blank" rel="noopener">daily.dev「State of CSS 2026 results are out」</a> /
+    <a href="https://www.igalia.com/chats/state-of-css-2026" target="_blank" rel="noopener">Igalia「Brian Kardell and Eric Meyer discuss the results of State of CSS 2026」</a> /
+    <a href="https://news.ycombinator.com/item?id=50246780" target="_blank" rel="noopener">Hacker News スレッド(CSS-Tricksの現在性を巡る議論)</a> /
+    <a href="https://caniuse.com/css-anchor-positioning" target="_blank" rel="noopener">caniuse: CSS Anchor Positioning</a>
+  </p>
+
+  <div class="summary">
+    <h2>結論サマリー(3行)</h2>
+    <ol>
+      <li>世界最大級のCSS実態調査「State of CSS 2026」(2026年5月15日〜6月29日実施、回答者<strong>4,902人</strong>)で、開発者の"一番欲しい新機能"は<strong>Anchor Positioning(アンカー配置)</strong>。ところが同じ機能が「ブラウザ対応が追いつかず実務で使えない」という不満ランキングでも1位になるという、"期待と現実のギャップ"が最大の注目点だった。</li>
+      <li>実務での使用率トップは2023年登場の:has()(<strong>83.7%</strong>)。"もう新しくない"機能が何年も現場を支え続けている一方、Grid(グリッドレイアウト)は「複雑すぎてカンニングシートが手放せない」という声が根強く残る。</li>
+      <li>AIによるコード生成はCSSにはまだ深く食い込んでいない。回答者の<strong>26%</strong>は「CSS生成にAIを一切使わない」と回答し、CSSに対する満足度は5点満点中<strong>4点</strong>で前年と変化なし。現場の実感は「派手な刷新」より「地道な定着」フェーズにある。</li>
+    </ol>
+  </div>
+
+  <h2>1. State of CSS 2026とは ― 4,902人が答えた「今のCSS」の実態</h2>
+  <p>「State of CSS」は、Sacha Greif氏らが運営する開発者向け実態調査シリーズの一つで、HTML・JavaScriptと並ぶ定番サーベイだ。2026年版は5月15日から6月29日まで実施され、世界中の開発者<strong>4,902人</strong>が回答した。ベンダー発表とは違い、現場のエンジニア・デザイナー自身の「使用率」「満足度」「不満」を直接集計する点が特徴で、業界の"建前"ではなく"本音"に近いデータが取れる調査として毎年注目される。</p>
+
+  <h2>2. 一番人気、同時に一番の不満 ― Anchor Positioningの"期待と現実のギャップ"</h2>
+  <p>今回最も話題になったのが、CSS Anchor Positioning(アンカー配置)の扱いだ。ツールチップやドロップダウン、ポップオーバーなどを、JavaScriptでの座標計算なしに「ある要素を基準にして配置する」ための仕組みで、これまでFloating UIなどのライブラリに頼っていた処理をCSSだけで書けるようにする。</p>
+  <p>この機能は「最も好きな新機能」の1位に選ばれた。だが同時に「対応ブラウザが足りず使いたいのに使えない機能」のランキングでも1位だった。daily.devの要約は「big fanfare, spotty support(大きな期待と、まだらな対応状況)」と表現している。caniuseのデータでも、ChromeやEdgeは対応が進む一方、Firefoxはバージョンによって対応状況が揺れ、Safariも対応が始まったばかり。「使いたい技術」と「使える技術」のタイムラグが、最も共感を集めたテーマだったと言える。</p>
+
+  <h2>3. 新機能より"定着した基礎"が勝つ ― :has()が使用率83.7%で首位</h2>
+  <p>一方、実際の使用率でトップに立ったのは2023年に登場した:has()で、<strong>83.7%</strong>の回答者が使っていると回答(2位のaspect-ratioは81.3%)。Brosset氏は「:has()はもはや"新しい"機能ではないが、今も愛されている」と指摘する。CSS Nesting、calc-size()、aspect-ratioも同様に、ここ数年で安定して使われるようになった機能群だ。</p>
+  <p>対照的に不満が根強いのがGrid(グリッドレイアウト)で、「複雑で直感的でなく、カンニングシートが手放せない」という評価が目立った。相互運用性(ブラウザ間の挙動差)は全カテゴリ中最大の痛点とされ、現場が今欲しいのは「新しい機能」そのものより「すでにある機能がどのブラウザでも同じように動くこと」だとわかる。</p>
+
+  <h2>4. AIはCSSにまだ深く食い込んでいない ― 「AIはまだ良いCSSを書けない」</h2>
+  <p>回答者の<strong>26%</strong>は「CSSのコード生成にAIを一切使わない」と回答し、残りの大半も「使用は50%未満」にとどまる。daily.devの要約が引く現場の声は率直で、「AIはまだ良いCSSを書けない」という評価が多数派だったという。</p>
+  <p>CSS全体への満足度は5点満点中<strong>4点</strong>で前年と変わらず、2024年から0.1ポイント低下したが、2020年の調査開始時点より0.2ポイント高い。レイアウトの微調整・ブラウザ間差異の吸収・デザイン意図の再現は、依然として人間の経験が求められる領域だ。Hacker Newsでは、CSS専門メディア「CSS-Tricks」の存在意義を巡る議論も起き、「AI時代にCSSのティップスはもう役に立たないのでは」という懐疑論と「CSSだけでなくJS・HTML・デザイン全般を扱ってきた」という反論が交わされ、CSSという専門領域の立ち位置が改めて問われる一年だったことがうかがえる。</p>
+
+  <h2>Highliteへの示唆</h2>
+  <ol>
+    <li><strong>"話題の新機能"は提案前に対応状況を精査する</strong> ― Anchor Positioningのように「人気だが対応がまだら」な機能は、クライアント向けの提案資料で安易に「最新技術対応」と打ち出すと、実際の表示崩れでトラブルになりやすい。新機能は必ずフォールバック設計・段階的導入(progressive enhancement)を前提に提案し、"派手さ"と"安定性"を分けて説明する姿勢が信頼につながる。</li>
+    <li><strong>「AIで速く、CSSの細部は人の目で」を商品説明に明記する</strong> ― 調査が示す通り、AIはまだレイアウトの微調整やクロスブラウザ対応を精度高くこなせない。AIで下書きを作り、ブラウザ間の表示差異や細かな崩れを人が仕上げる工程こそがHighliteの提供価値であることを、具体的な工程として言語化する価値がある。</li>
+    <li><strong>"地味な基礎力"を差別化の論拠にする</strong> ― :has()の例が示すように、現場で本当に価値を出しているのは目新しさではなく、既存機能を安定して使いこなす技術力だ。派手なビジュアル訴求だけでなく、「表示崩れが起きない」「どの環境でも同じ見た目になる」という地味な品質を、提案時の強みとして数値や事例で語れるようにしたい。</li>
+  </ol>
+</main>
+<footer>Highlite内部資料・非公開</footer>
+</body>
+</html>
